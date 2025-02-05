@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C222889D2D53D4970037C34E /* JAppicalApp.swift */; };
+		C22288A02D53D4970037C34E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C222889F2D53D4970037C34E /* ContentView.swift */; };
+		C22288A22D53D4980037C34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22288A12D53D4980037C34E /* Assets.xcassets */; };
+		C22288A52D53D4980037C34E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22288A42D53D4980037C34E /* Preview Assets.xcassets */; };
+		C22288A72D53D4980037C34E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288A62D53D4980037C34E /* Persistence.swift */; };
+		C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */; };
+		C22288B42D53D4990037C34E /* JAppicalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288B32D53D4990037C34E /* JAppicalTests.swift */; };
+		C22288BE2D53D4990037C34E /* JAppicalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288BD2D53D4990037C34E /* JAppicalUITests.swift */; };
+		C22288C02D53D4990037C34E /* JAppicalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C22288B02D53D4990037C34E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C22288922D53D4970037C34E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C22288992D53D4970037C34E;
+			remoteInfo = JAppical;
+		};
+		C22288BA2D53D4990037C34E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C22288922D53D4970037C34E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C22288992D53D4970037C34E;
+			remoteInfo = JAppical;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C222889A2D53D4970037C34E /* JAppical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAppical.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C222889D2D53D4970037C34E /* JAppicalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalApp.swift; sourceTree = "<group>"; };
+		C222889F2D53D4970037C34E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C22288A12D53D4980037C34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C22288A42D53D4980037C34E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C22288A62D53D4980037C34E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		C22288A92D53D4980037C34E /* JAppical.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JAppical.xcdatamodel; sourceTree = "<group>"; };
+		C22288AF2D53D4990037C34E /* JAppicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAppicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22288B32D53D4990037C34E /* JAppicalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalTests.swift; sourceTree = "<group>"; };
+		C22288B92D53D4990037C34E /* JAppicalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAppicalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22288BD2D53D4990037C34E /* JAppicalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalUITests.swift; sourceTree = "<group>"; };
+		C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C27D83EB2D53D51F004BDF14 /* JData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JData; sourceTree = "<group>"; };
+		C27D83EC2D53D527004BDF14 /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
+		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C22288972D53D4970037C34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22288AC2D53D4990037C34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22288B62D53D4990037C34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C22288912D53D4970037C34E = {
+			isa = PBXGroup;
+			children = (
+				C27D83EA2D53D51F004BDF14 /* Packages */,
+				C222889C2D53D4970037C34E /* JAppical */,
+				C22288B22D53D4990037C34E /* JAppicalTests */,
+				C22288BC2D53D4990037C34E /* JAppicalUITests */,
+				C222889B2D53D4970037C34E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C222889B2D53D4970037C34E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C222889A2D53D4970037C34E /* JAppical.app */,
+				C22288AF2D53D4990037C34E /* JAppicalTests.xctest */,
+				C22288B92D53D4990037C34E /* JAppicalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C222889C2D53D4970037C34E /* JAppical */ = {
+			isa = PBXGroup;
+			children = (
+				C222889D2D53D4970037C34E /* JAppicalApp.swift */,
+				C222889F2D53D4970037C34E /* ContentView.swift */,
+				C22288A12D53D4980037C34E /* Assets.xcassets */,
+				C22288A62D53D4980037C34E /* Persistence.swift */,
+				C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */,
+				C22288A32D53D4980037C34E /* Preview Content */,
+			);
+			path = JAppical;
+			sourceTree = "<group>";
+		};
+		C22288A32D53D4980037C34E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C22288A42D53D4980037C34E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C22288B22D53D4990037C34E /* JAppicalTests */ = {
+			isa = PBXGroup;
+			children = (
+				C22288B32D53D4990037C34E /* JAppicalTests.swift */,
+			);
+			path = JAppicalTests;
+			sourceTree = "<group>";
+		};
+		C22288BC2D53D4990037C34E /* JAppicalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C22288BD2D53D4990037C34E /* JAppicalUITests.swift */,
+				C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */,
+			);
+			path = JAppicalUITests;
+			sourceTree = "<group>";
+		};
+		C27D83EA2D53D51F004BDF14 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				C27D83EB2D53D51F004BDF14 /* JData */,
+				C27D83EC2D53D527004BDF14 /* JFoundation */,
+				C27D83ED2D53D536004BDF14 /* JUI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C22288992D53D4970037C34E /* JAppical */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22288C32D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppical" */;
+			buildPhases = (
+				C22288962D53D4970037C34E /* Sources */,
+				C22288972D53D4970037C34E /* Frameworks */,
+				C22288982D53D4970037C34E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JAppical;
+			productName = JAppical;
+			productReference = C222889A2D53D4970037C34E /* JAppical.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C22288AE2D53D4990037C34E /* JAppicalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22288C62D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppicalTests" */;
+			buildPhases = (
+				C22288AB2D53D4990037C34E /* Sources */,
+				C22288AC2D53D4990037C34E /* Frameworks */,
+				C22288AD2D53D4990037C34E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C22288B12D53D4990037C34E /* PBXTargetDependency */,
+			);
+			name = JAppicalTests;
+			productName = JAppicalTests;
+			productReference = C22288AF2D53D4990037C34E /* JAppicalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C22288B82D53D4990037C34E /* JAppicalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22288C92D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppicalUITests" */;
+			buildPhases = (
+				C22288B52D53D4990037C34E /* Sources */,
+				C22288B62D53D4990037C34E /* Frameworks */,
+				C22288B72D53D4990037C34E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C22288BB2D53D4990037C34E /* PBXTargetDependency */,
+			);
+			name = JAppicalUITests;
+			productName = JAppicalUITests;
+			productReference = C22288B92D53D4990037C34E /* JAppicalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C22288922D53D4970037C34E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					C22288992D53D4970037C34E = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					C22288AE2D53D4990037C34E = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = C22288992D53D4970037C34E;
+					};
+					C22288B82D53D4990037C34E = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = C22288992D53D4970037C34E;
+					};
+				};
+			};
+			buildConfigurationList = C22288952D53D4970037C34E /* Build configuration list for PBXProject "JAppical" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C22288912D53D4970037C34E;
+			productRefGroup = C222889B2D53D4970037C34E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C22288992D53D4970037C34E /* JAppical */,
+				C22288AE2D53D4990037C34E /* JAppicalTests */,
+				C22288B82D53D4990037C34E /* JAppicalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C22288982D53D4970037C34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22288A52D53D4980037C34E /* Preview Assets.xcassets in Resources */,
+				C22288A22D53D4980037C34E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22288AD2D53D4990037C34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22288B72D53D4990037C34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C22288962D53D4970037C34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22288A72D53D4980037C34E /* Persistence.swift in Sources */,
+				C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */,
+				C22288A02D53D4970037C34E /* ContentView.swift in Sources */,
+				C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22288AB2D53D4990037C34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22288B42D53D4990037C34E /* JAppicalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22288B52D53D4990037C34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22288C02D53D4990037C34E /* JAppicalUITestsLaunchTests.swift in Sources */,
+				C22288BE2D53D4990037C34E /* JAppicalUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C22288B12D53D4990037C34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C22288992D53D4970037C34E /* JAppical */;
+			targetProxy = C22288B02D53D4990037C34E /* PBXContainerItemProxy */;
+		};
+		C22288BB2D53D4990037C34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C22288992D53D4970037C34E /* JAppical */;
+			targetProxy = C22288BA2D53D4990037C34E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C22288C12D53D4990037C34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C22288C22D53D4990037C34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C22288C42D53D4990037C34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JAppical/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppical;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C22288C52D53D4990037C34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JAppical/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppical;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C22288C72D53D4990037C34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppicalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JAppical.app/JAppical";
+			};
+			name = Debug;
+		};
+		C22288C82D53D4990037C34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppicalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JAppical.app/JAppical";
+			};
+			name = Release;
+		};
+		C22288CA2D53D4990037C34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppicalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JAppical;
+			};
+			name = Debug;
+		};
+		C22288CB2D53D4990037C34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppicalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JAppical;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C22288952D53D4970037C34E /* Build configuration list for PBXProject "JAppical" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22288C12D53D4990037C34E /* Debug */,
+				C22288C22D53D4990037C34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C22288C32D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppical" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22288C42D53D4990037C34E /* Debug */,
+				C22288C52D53D4990037C34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C22288C62D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppicalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22288C72D53D4990037C34E /* Debug */,
+				C22288C82D53D4990037C34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C22288C92D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppicalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22288CA2D53D4990037C34E /* Debug */,
+				C22288CB2D53D4990037C34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C22288A92D53D4980037C34E /* JAppical.xcdatamodel */,
+			);
+			currentVersion = C22288A92D53D4980037C34E /* JAppical.xcdatamodel */;
+			path = JAppical.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C22288922D53D4970037C34E /* Project object */;
+}
