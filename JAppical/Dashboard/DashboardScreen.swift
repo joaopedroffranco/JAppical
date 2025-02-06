@@ -6,6 +6,10 @@ import JUI
 struct DashboardScreen: View {
 	var body: some View {
 		DashboardView()
-			.navigationTitle("Appical")
+			.navigationBarTitleDisplayMode(.inline)
+			.navigationTitle(Strings.appName)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) { Avatar() }
+			}
 	}
 }

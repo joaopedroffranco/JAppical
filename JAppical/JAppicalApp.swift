@@ -12,6 +12,7 @@ import JUI
 struct JAppicalApp: App {
 	init() {
 		FontLoader.registerFonts()
+		NavigationBarAppearance.setup()
 	}
 
 	var body: some Scene {

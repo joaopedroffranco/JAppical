@@ -63,4 +63,3 @@ struct JList_Previews: PreviewProvider {
 		}
 	}
 }
-
