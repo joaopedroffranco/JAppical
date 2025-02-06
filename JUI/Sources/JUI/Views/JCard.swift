@@ -16,7 +16,7 @@ public struct JCard<Content: View>: View {
 			.cornerRadius(DesignSystem.Radius.default)
 			.overlay(
 				RoundedRectangle(cornerRadius: DesignSystem.Radius.default)
-					.stroke(DesignSystem.Colors.border, lineWidth: 1)
+					.stroke(DesignSystem.Colors.shadowBorder, lineWidth: 1)
 			)
 			.shadow(
 				color: DesignSystem.Colors.shadow,

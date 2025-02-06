@@ -11,13 +11,13 @@ import SwiftUI
 /// By using `List`, it ensures optimal scrolling performance and provides flexibility for customization. This approach simplifies the code by accepting a list of hashable `Data` and rendering each item as a customizable row.
 public struct JList<Data: Hashable, Row: View>: View {
 	private var data: [Data]
-	private var rowView: (Data) -> Row
+	private var rowView: (Int, Data) -> Row
 	private let spacing: CGFloat
 	
 	public init(
 		data: [Data],
 		spacing: CGFloat = .zero,
-		@ViewBuilder row: @escaping (Data) -> Row
+		@ViewBuilder row: @escaping (Int, Data) -> Row
 	) {
 		self.data = data
 		self.rowView = row
@@ -26,8 +26,8 @@ public struct JList<Data: Hashable, Row: View>: View {
 	
 	public var body: some View {
 		List {
-			ForEach(data, id: \.self) { object in
-				rowView(object)
+			ForEach(Array(data.enumerated()), id: \.offset) { offset, object in
+				rowView(offset, object)
 					.listRowInsets(
 						.init(
 							top: .zero,
@@ -37,6 +37,7 @@ public struct JList<Data: Hashable, Row: View>: View {
 						)
 					)
 					.listRowBackground(DesignSystem.Colors.background)
+					.listRowSeparator(.hidden)
 			}
 		}
 		.listStyle(.plain)
@@ -46,14 +47,14 @@ public struct JList<Data: Hashable, Row: View>: View {
 struct JList_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			JList(data: ["a", "b", "c"]) { element in
+			JList(data: ["a", "b", "c"]) { _, element in
 				Text(element.description)
 					.frame(height: 50)
 					.frame(maxWidth: .infinity)
 					.background(.red)
 			}
 			
-			JList(data: [1, 2, 3, 4, 5], spacing: 10) { element in
+			JList(data: [1, 2, 3, 4, 5], spacing: 10) { _, element in
 				Text(element.description)
 					.background(.red)
 					.frame(height: 50)

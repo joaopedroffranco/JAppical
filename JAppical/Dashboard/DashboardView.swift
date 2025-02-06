@@ -4,7 +4,7 @@ import SwiftUI
 import JUI
 
 struct DashboardView: View {
-	private var sectionsMargin = DesignSystem.Spacings.large
+	private let sectionsMargin = DesignSystem.Spacings.margin
 	
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
@@ -18,8 +18,6 @@ struct DashboardView: View {
 					newHires
 				}
 				.padding(.horizontal, DesignSystem.Spacings.margin)
-				
-				Spacer()
 			}
 			.padding(.top, sectionsMargin)
 		}
@@ -30,7 +28,7 @@ struct DashboardView: View {
 private extension DashboardView {
 	@ViewBuilder
 	var logoHeader: some View {
-		VStack(alignment: .center, spacing: DesignSystem.Spacings.small) {
+		VStack(alignment: .center, spacing: DesignSystem.Spacings.default) {
 			LocalImage(named: DesignSystem.Assets.logo)
 				.scaledToFill()
 				.frame(width: 135, height: 49)
@@ -47,13 +45,14 @@ private extension DashboardView {
 				LocalImage(named: DesignSystem.Assets.header)
 					.scaledToFill()
 					.cornerRadius(DesignSystem.Radius.default)
-					.padding(.top, DesignSystem.Spacings.huge)
+					.padding(.top, 49)
+					.padding(.bottom, DesignSystem.Spacings.default)
 				
 				Text(Strings.Dashboard.newHireJourneyTitle)
 					.font(DesignSystem.Fonts.heading)
 				
 				Text(Strings.Dashboard.newHireJourneyDescription)
-					.font(DesignSystem.Fonts.description)
+					.font(DesignSystem.Fonts.default)
 			}
 		}
 	}
@@ -62,14 +61,11 @@ private extension DashboardView {
 	var todo: some View {
 		section(title: Strings.Dashboard.Sections.todos) {
 			JCard {
-				VStack {
-					// TODO: Todo View here
-					Text(Strings.Dashboard.newHireJourneyTitle)
-						.font(DesignSystem.Fonts.heading)
-					
-					Text(Strings.Dashboard.newHireJourneyDescription)
-						.font(DesignSystem.Fonts.heading)
-				}
+				TodosCard(tasks: [
+					"Set up introductory meeting with your team",
+					"Collect your new hire’s access card",
+					"Set up 1:1 coffee dates with a minimum of 4 people from different departments"
+				])
 			}
 		}
 	}
@@ -77,10 +73,12 @@ private extension DashboardView {
 	@ViewBuilder
 	var newHires: some View {
 		section(title: Strings.Dashboard.Sections.newHires) {
-			JCard {
-				HStack {
-					NewHiresCard()
-					Spacer()
+			NavigationLink(destination: NewHiresScreen()) {
+				JCard {
+					HStack {
+						NewHiresCard()
+						Spacer()
+					}
 				}
 			}
 		}
@@ -97,7 +95,9 @@ private extension DashboardView {
 				.padding(.bottom, sectionsMargin)
 			
 			content()
+				.frame(maxWidth: .infinity)
 		}
+		.buttonStyle(PlainButtonStyle())
 	}
 }
 

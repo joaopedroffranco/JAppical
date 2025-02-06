@@ -22,6 +22,9 @@
 		C22B1A362D54BA4200121239 /* JFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A352D54BA4200121239 /* JFoundation */; };
 		C22B1A382D54BA4200121239 /* JUI in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A372D54BA4200121239 /* JUI */; };
 		C22B1A3B2D54E43500121239 /* NewHiresCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A3A2D54E43500121239 /* NewHiresCard.swift */; };
+		C2E63E7C2D54F2C500187560 /* TodosCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7B2D54F2C500187560 /* TodosCard.swift */; };
+		C2E63E7F2D55089600187560 /* NewHiresScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7E2D55089600187560 /* NewHiresScreen.swift */; };
+		C2E63E812D55089D00187560 /* NewHiresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E802D55089D00187560 /* NewHiresView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		C27D83EB2D53D51F004BDF14 /* JData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JData; sourceTree = "<group>"; };
 		C27D83EC2D53D527004BDF14 /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
 		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
+		C2E63E7B2D54F2C500187560 /* TodosCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosCard.swift; sourceTree = "<group>"; };
+		C2E63E7E2D55089600187560 /* NewHiresScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresScreen.swift; sourceTree = "<group>"; };
+		C2E63E802D55089D00187560 /* NewHiresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		C222889C2D53D4970037C34E /* JAppical */ = {
 			isa = PBXGroup;
 			children = (
+				C2E63E7D2D55088300187560 /* NewHires */,
 				C22B1A2B2D54B57B00121239 /* Dashboard */,
 				C222889D2D53D4970037C34E /* JAppicalApp.swift */,
 				C222889F2D53D4970037C34E /* ContentView.swift */,
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				C22B1A3A2D54E43500121239 /* NewHiresCard.swift */,
+				C2E63E7B2D54F2C500187560 /* TodosCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -184,6 +192,15 @@
 				C27D83ED2D53D536004BDF14 /* JUI */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		C2E63E7D2D55088300187560 /* NewHires */ = {
+			isa = PBXGroup;
+			children = (
+				C2E63E7E2D55089600187560 /* NewHiresScreen.swift */,
+				C2E63E802D55089D00187560 /* NewHiresView.swift */,
+			);
+			path = NewHires;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +339,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C22B1A3B2D54E43500121239 /* NewHiresCard.swift in Sources */,
+				C2E63E7C2D54F2C500187560 /* TodosCard.swift in Sources */,
+				C2E63E7F2D55089600187560 /* NewHiresScreen.swift in Sources */,
+				C2E63E812D55089D00187560 /* NewHiresView.swift in Sources */,
 				C22288A72D53D4980037C34E /* Persistence.swift in Sources */,
 				C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */,
 				C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */,

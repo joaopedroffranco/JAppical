@@ -7,7 +7,7 @@ struct DashboardScreen: View {
 	var body: some View {
 		DashboardView()
 			.navigationBarTitleDisplayMode(.inline)
-			.navigationTitle(Strings.appName)
+			.navigationTitle(Strings.home)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) { Avatar() }
 			}

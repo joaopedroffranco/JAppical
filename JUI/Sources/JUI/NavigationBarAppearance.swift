@@ -12,5 +12,6 @@ public class NavigationBarAppearance {
 		
 		UINavigationBar.appearance().standardAppearance = appearance
 		UINavigationBar.appearance().scrollEdgeAppearance = appearance
+		UINavigationBar.appearance().tintColor = DesignSystem.Colors.white.uiColor
 	}
 }
