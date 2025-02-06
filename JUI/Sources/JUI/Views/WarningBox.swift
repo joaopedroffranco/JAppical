@@ -20,11 +20,11 @@ public struct WarningBox: View {
 		HStack {
 			VStack(alignment: .leading) {
 				Text(headline)
-					.font(DesignSystem.Fonts.section)
+					.font(DesignSystem.Fonts.default)
 					.foregroundColor(DesignSystem.Colors.dark)
 				
 				Text(message)
-					.font(DesignSystem.Fonts.small)
+					.font(DesignSystem.Fonts.default)
 					.foregroundColor(DesignSystem.Colors.dark)
 			}
 			Spacer()

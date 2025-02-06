@@ -19,6 +19,8 @@ let package = Package(
 	targets: [
 		.target(
 			name: "JUI",
-			dependencies: ["JFoundation"])
+			dependencies: ["JFoundation"],
+			resources: [.process("Resources")]
+		)
 	]
 )

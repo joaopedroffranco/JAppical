@@ -16,6 +16,11 @@
 		C22288B42D53D4990037C34E /* JAppicalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288B32D53D4990037C34E /* JAppicalTests.swift */; };
 		C22288BE2D53D4990037C34E /* JAppicalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288BD2D53D4990037C34E /* JAppicalUITests.swift */; };
 		C22288C02D53D4990037C34E /* JAppicalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */; };
+		C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A2E2D54B60100121239 /* DashboardView.swift */; };
+		C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A302D54B64900121239 /* DashboardScreen.swift */; };
+		C22B1A342D54BA4200121239 /* JData in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A332D54BA4200121239 /* JData */; };
+		C22B1A362D54BA4200121239 /* JFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A352D54BA4200121239 /* JFoundation */; };
+		C22B1A382D54BA4200121239 /* JUI in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A372D54BA4200121239 /* JUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,8 @@
 		C22288B92D53D4990037C34E /* JAppicalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAppicalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22288BD2D53D4990037C34E /* JAppicalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalUITests.swift; sourceTree = "<group>"; };
 		C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C22B1A2E2D54B60100121239 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		C22B1A302D54B64900121239 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		C27D83EB2D53D51F004BDF14 /* JData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JData; sourceTree = "<group>"; };
 		C27D83EC2D53D527004BDF14 /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
 		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
@@ -58,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C22B1A382D54BA4200121239 /* JUI in Frameworks */,
+				C22B1A362D54BA4200121239 /* JFoundation in Frameworks */,
+				C22B1A342D54BA4200121239 /* JData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +96,7 @@
 				C22288B22D53D4990037C34E /* JAppicalTests */,
 				C22288BC2D53D4990037C34E /* JAppicalUITests */,
 				C222889B2D53D4970037C34E /* Products */,
+				C22B1A322D54BA4200121239 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +113,7 @@
 		C222889C2D53D4970037C34E /* JAppical */ = {
 			isa = PBXGroup;
 			children = (
+				C22B1A2B2D54B57B00121239 /* Dashboard */,
 				C222889D2D53D4970037C34E /* JAppicalApp.swift */,
 				C222889F2D53D4970037C34E /* ContentView.swift */,
 				C22288A12D53D4980037C34E /* Assets.xcassets */,
@@ -137,6 +149,22 @@
 			path = JAppicalUITests;
 			sourceTree = "<group>";
 		};
+		C22B1A2B2D54B57B00121239 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C22B1A2E2D54B60100121239 /* DashboardView.swift */,
+				C22B1A302D54B64900121239 /* DashboardScreen.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		C22B1A322D54BA4200121239 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C27D83EA2D53D51F004BDF14 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +191,11 @@
 			dependencies = (
 			);
 			name = JAppical;
+			packageProductDependencies = (
+				C22B1A332D54BA4200121239 /* JData */,
+				C22B1A352D54BA4200121239 /* JFoundation */,
+				C22B1A372D54BA4200121239 /* JUI */,
+			);
 			productName = JAppical;
 			productReference = C222889A2D53D4970037C34E /* JAppical.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +312,8 @@
 			files = (
 				C22288A72D53D4980037C34E /* Persistence.swift in Sources */,
 				C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */,
+				C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */,
+				C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */,
 				C22288A02D53D4970037C34E /* ContentView.swift in Sources */,
 				C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */,
 			);
@@ -599,6 +634,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C22B1A332D54BA4200121239 /* JData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JData;
+		};
+		C22B1A352D54BA4200121239 /* JFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JFoundation;
+		};
+		C22B1A372D54BA4200121239 /* JUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */ = {

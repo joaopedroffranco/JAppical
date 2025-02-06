@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import JUI
 
 @main
 struct JAppicalApp: App {
-    let persistenceController = PersistenceController.shared
+	init() {
+		FontLoader.registerFonts()
+	}
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
-    }
+	var body: some Scene {
+		WindowGroup {
+			NavigationView {
+				DashboardScreen()
+			}
+		}
+	}
 }

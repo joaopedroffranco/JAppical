@@ -29,7 +29,7 @@ public struct Box: View {
 	public var body: some View {
 		HStack {
 			Text(title)
-				.font(DesignSystem.Fonts.section)
+				.font(DesignSystem.Fonts.default)
 				.foregroundColor(foregroundColor)
 				.padding(DesignSystem.Spacings.xs)
 			
