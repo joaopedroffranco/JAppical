@@ -29,7 +29,7 @@ private extension DashboardView {
 	@ViewBuilder
 	var logoHeader: some View {
 		VStack(alignment: .center, spacing: DesignSystem.Spacings.default) {
-			LocalImage(named: DesignSystem.Assets.logo)
+			LocalImage(named: DesignSystem.Assets.logoExtended)
 				.scaledToFill()
 				.frame(width: 135, height: 49)
 			

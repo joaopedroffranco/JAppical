@@ -6,6 +6,14 @@ public enum Strings {
 	public static var home = "Appical"
 	public static var newsHires = "Recently assigned new hires"
 	
+	public enum Login {
+		public static var title = "Log in"
+		public static var loginIn = "Log in"
+		public static var next = "Next"
+		public static var email = "Email"
+		public static var password = "Password"
+	}
+	
 	public enum Dashboard {
 		public static var newHireJourneyTitle = "Your new hires journey to success!"
 		public static var newHireJourneyDescription = "As a manager responsible for onboarding new hires, your role is pivotal in guiding them towards success. By providing clear and comprehensive training, you lay a solid foundation for their professional growth,"

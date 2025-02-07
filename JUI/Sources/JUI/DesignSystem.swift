@@ -33,6 +33,7 @@ public enum DesignSystem {
 		public static let `default` = Font.custom("Mulish-Regular", size: 16)
 		public static let heading = Font.custom("Mulish-Bold", size: 16)
 		public static let description = Font.custom("Mulish-Regular", size: 14)
+		public static let textfield = Font.custom("Mulish-Regular", size: 14)
 		public static let section = Font.custom("Mulish-Bold", size: 20)
 		public static let underSection = Font.custom("Mulish-Medium", size: 16)
 		public static let button = Font.custom("Mulish-Medium", size: 16)
@@ -54,10 +55,12 @@ public enum DesignSystem {
   }
 	
 	public enum Assets {
+		public static var logoExtended = "logo_extended"
 		public static var logo = "logo"
 		public static var header = "header"
 		public static var placeholder = "placeholder"
 		public static var placeholderAvatar = "placeholder_avatar"
+		public static var loading = "loading"
 		public static var personIcon = "person_icon"
 		public static var todoIcon = "todo_icon"
 		public static var checkedIcon = "checked_icon"
