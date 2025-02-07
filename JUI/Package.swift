@@ -15,11 +15,12 @@ let package = Package(
 	],
 	dependencies: [
 		.package(name: "JFoundation", path: "../JFoundation"),
+		.package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.10.0"),
 	],
 	targets: [
 		.target(
 			name: "JUI",
-			dependencies: ["JFoundation"],
+			dependencies: ["JFoundation", "Kingfisher"],
 			resources: [.process("Resources")]
 		)
 	]

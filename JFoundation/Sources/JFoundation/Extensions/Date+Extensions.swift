@@ -20,3 +20,7 @@ public extension Date {
 		Calendar.current.isDateInTomorrow(self)
 	}
 }
+
+public extension TimeInterval {
+	var asDate: Date { Date(timeIntervalSince1970: self) }
+}

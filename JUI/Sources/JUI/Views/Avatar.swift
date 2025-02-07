@@ -1,6 +1,7 @@
 // Created in 2025
 
 import SwiftUI
+import Kingfisher
 
 public struct Avatar: View {
 	private var image: URL?
@@ -16,7 +17,9 @@ public struct Avatar: View {
 	public var body: some View {
 		Group {
 			if let image = image {
-				CachedImage(url: image)
+				KFImage.url(image)
+					.memoryCacheExpiration(.never)
+					.diskCacheExpiration(.days(10))
 			} else {
 				LocalImage(named: DesignSystem.Assets.placeholderAvatar)
 					.padding(6)
