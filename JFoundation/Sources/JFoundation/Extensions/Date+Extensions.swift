@@ -5,12 +5,18 @@
 import Foundation
 
 public extension Date {
-
-	/// Formats a given `Date` object into a specified string format.
 	var asString: String {
 		let formatter = DateFormatter()
-		formatter.dateFormat = "dd.MM.yyyy"
+		formatter.dateFormat = "dd MM yyyy"
 		
 		return formatter.string(from: self)
+	}
+	
+	var isToday: Bool {
+		Calendar.current.isDateInToday(self)
+	}
+	
+	var isTomorrow: Bool {
+		Calendar.current.isDateInTomorrow(self)
 	}
 }
