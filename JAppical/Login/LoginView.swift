@@ -4,6 +4,8 @@ import SwiftUI
 import JUI
 
 struct LoginView: View {
+	@ObservedObject var viewModel: LoginViewModel
+	
 	var body: some View {
 		VStack {
 			header
@@ -11,14 +13,12 @@ struct LoginView: View {
 			
 			VStack(alignment: .center, spacing: DesignSystem.Spacings.largeMargin) {
 				email
-				password
+				if viewModel.isPasswordVisible { password }
 			}
 			.padding(.horizontal, 32)
 			
 			Spacer()
-			
 			button
-			
 			Spacer()
 		}
 	}
@@ -42,9 +42,12 @@ private extension LoginView {
 			Text(Strings.Login.email)
 				.font(DesignSystem.Fonts.description)
 				.foregroundColor(DesignSystem.Colors.gray)
-			JTextField()
+
+			JTextField(text: $viewModel.inputEmail, isEnabled: viewModel.isEmailEnabled, errorMessage: viewModel.emailErrorMessage)
 				.keyboardType(.emailAddress)
+				.textInputAutocapitalization(.never)
 		}
+		
 	}
 	
 	@ViewBuilder
@@ -54,23 +57,37 @@ private extension LoginView {
 				.font(DesignSystem.Fonts.description)
 			
 			.foregroundColor(DesignSystem.Colors.gray)
-			JSecureTextField()
+			JSecureTextField(text: $viewModel.inputPassword, errorMessage: viewModel.passwordErrorMessage)
 		}
 	}
 	
 	@ViewBuilder
 	var button: some View {
-		JButton(
-			text: Strings.Login.loginIn,
-			backgroundColor: DesignSystem.Colors.primary,
-			foregroundColor: DesignSystem.Colors.white
-		)
-		.frame(width: 146, height: 42)
+		switch viewModel.state {
+		case .inputEmail, .emailNotExist, .emailInvalid:
+			JButton(
+				text: Strings.Login.next,
+				backgroundColor: DesignSystem.Colors.primary,
+				foregroundColor: DesignSystem.Colors.white
+			) { viewModel.validateEmail() }
+			.frame(width: 146, height: 42)
+		case .inputPassword, .wrongPassword:
+			JButton(
+				text: Strings.Login.loginIn,
+				backgroundColor: DesignSystem.Colors.primary,
+				foregroundColor: DesignSystem.Colors.white
+			) { viewModel.authenticate() }
+			.frame(width: 146, height: 42)
+		case .authenticationLoading, .emailLoading:
+			Loading()
+		default: EmptyView()
+		}
+		
 	}
 }
 
-struct LoginView_Previews: PreviewProvider {
-	static var previews: some View {
-		LoginView()
-	}
-}
+//struct LoginView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		LoginView
+//	}
+//}

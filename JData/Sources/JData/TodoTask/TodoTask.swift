@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Task {
+public struct TodoTask {
 	public let id: String
 	public let text: String
 	public let dueDate: TimeInterval
@@ -21,4 +21,4 @@ public struct Task {
 	}
 }
 
-extension Task: Codable {}
+extension TodoTask: Codable {}

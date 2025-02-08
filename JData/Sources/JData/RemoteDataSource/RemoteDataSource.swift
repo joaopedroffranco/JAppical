@@ -5,19 +5,17 @@
 import Foundation
 import Combine
 
-/// A typealias for simplifying the `AnyPublisher` type while wrapping the `Error` type.
 public typealias RemotePublisher<T: Decodable> = AnyPublisher<T, Error>
 
-/// Possible errors for a remote data source.
 public enum RemoteDataSourceError: Error {
 	case invalidRequest
 	case decodeError
 	case requestFailed
 }
 
-public class RemoteDataSource: DataSourceProtocol {
+public class RemoteDataSource: RemoteDataSourceProtocol {
 	let session: URLSession
-	let cacheStorage: URLCache.StoragePolicy
+	let cacheStorage: URLCache.StoragePolicy // TODO: Check if still needed
 
 	public init(session: URLSession = .shared, cacheStorage: URLCache.StoragePolicy = .allowedInMemoryOnly) {
 		self.session = session

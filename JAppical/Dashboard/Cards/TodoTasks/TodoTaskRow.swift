@@ -3,13 +3,13 @@
 import SwiftUI
 import JUI
 
-struct TaskRow: View {
-	@ObservedObject private var viewModel: TaskRowViewModel
+struct TodoTaskRow: View {
+	@ObservedObject private var viewModel: TodoTaskRowViewModel
 	private var didCheck: () -> Void
 	private var isFirst: Bool
 	private var isLast: Bool
 	
-	init(viewModel: TaskRowViewModel, isFirst: Bool, isLast: Bool, didCheck: @escaping () -> Void = {}) {
+	init(viewModel: TodoTaskRowViewModel, isFirst: Bool, isLast: Bool, didCheck: @escaping () -> Void = {}) {
 		self.viewModel = viewModel
 		self.didCheck = didCheck
 		self.isFirst = isFirst
@@ -50,13 +50,13 @@ struct TaskRow: View {
 	}
 }
 
-struct TaskRow_Previews: PreviewProvider {
+struct TodoTaskRow_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			TaskRow(
+			TodoTaskRow(
 				viewModel: .init(
 					id: "1",
-					text: "Task 1",
+					text: "TodoTask 1",
 					dueDate: "Today",
 					dueTimeInterval: 11111111,
 					color: .red,
@@ -65,10 +65,10 @@ struct TaskRow_Previews: PreviewProvider {
 				isFirst: false,
 				isLast: false
 			)
-			TaskRow(
+			TodoTaskRow(
 				viewModel: .init(
 					id: "1",
-					text: "Task 2",
+					text: "TodoTask 2",
 					dueDate: "Tomorrow",
 					dueTimeInterval: 11111111,
 					color: .red,

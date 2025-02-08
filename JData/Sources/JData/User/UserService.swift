@@ -3,30 +3,43 @@
 //
 
 import Combine
+import Foundation
 
 public protocol UserServiceProtocol {
-	func checkEmail(email: String) -> AnyPublisher<Bool, Never>
-	func authenticate(email: String, password: String) -> AnyPublisher<Bool, Never>
+	func emailExists(_ email: String) async -> Bool
+	func authenticate(email: String, password: String) async -> Bool
+	func getLoggedUser() -> User?
+	func logout()
 }
 
 public class UserService: UserServiceProtocol {
-	var dataSource: DataSourceProtocol
-
-	public init(dataSource: DataSourceProtocol = RemoteDataSource()) {
-		self.dataSource = dataSource
+	private let storage: StorageProtocol
+	
+	public init(storage: StorageProtocol = UserDefaultsStorage()) {
+		self.storage = storage
 	}
 	
-	public func checkEmail(email: String) -> AnyPublisher<Bool, Never> {
-		Just(true)
-			.eraseToAnyPublisher()
-		
-		// TODO: Call UserDefaults
+	// !!!
+	// This is a fake absurd logic to simulate an authentication by checking with an expected credentials.
+	// A safe way would be having an OAuth API, and it'd just send credentials and get back a valid token.
+	// !!!
+	public func emailExists(_ email: String) async -> Bool {
+		storage.get(forKey: Credentials.expectedEmailKey) == email
 	}
 	
-	public func authenticate(email: String, password: String) -> AnyPublisher<Bool, Never> {
-		Just(true)
-			.eraseToAnyPublisher()
+	public func authenticate(email: String, password: String) async -> Bool {
+		guard storage.get(forKey: Credentials.expectedEmailKey) == email &&
+						storage.get(forKey: Credentials.expectedPasswordKey) == password else { return false }
 		
-		// TODO: Call UserDefaults
+		storage.set(Credentials.loggedUser, forKey: Credentials.loggedUserKey)
+		return true
+	}
+	
+	public func getLoggedUser() -> User? {
+		storage.get(forKey: Credentials.loggedUserKey)
+	}
+	
+	public func logout() {
+		storage.remove(forKey: Credentials.loggedUserKey)
 	}
 }

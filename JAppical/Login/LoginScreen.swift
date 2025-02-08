@@ -3,7 +3,9 @@
 import SwiftUI
 
 struct LoginScreen: View {
+	@StateObject var viewModel = LoginViewModel()
+
 	var body: some View {
-		LoginView()
+		LoginView(viewModel: viewModel)
 	}
 }

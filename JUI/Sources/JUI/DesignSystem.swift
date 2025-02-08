@@ -25,6 +25,7 @@ public enum DesignSystem {
 		public static let shadowBorder = lightGray
 		public static let border = Color(red: 192/255, green: 192/255, blue: 192/255)
 		public static let separator = Color(red: 218/255, green: 218/255, blue: 218/255)
+		public static let error = red
 		public static let textfield = Color(red: 242/255, green: 247/255, blue: 255/255)
 		public static let textfieldBorder = Color(red: 217/255, green: 232/255, blue: 255/255)
   }

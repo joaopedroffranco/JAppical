@@ -2,8 +2,10 @@
 
 import SwiftUI
 
-struct Loading: View {
-	var body: some View {
+public struct Loading: View {
+	public init() {}
+	
+	public var body: some View {
 		LocalImage(named: DesignSystem.Assets.loading)
 			.scaledToFit()
 			.frame(width: 48, height: 48)

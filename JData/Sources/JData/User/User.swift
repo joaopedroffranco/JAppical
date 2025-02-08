@@ -17,3 +17,5 @@ public struct User {
 		self.avatar = avatar
 	}
 }
+
+extension User: Codable {}

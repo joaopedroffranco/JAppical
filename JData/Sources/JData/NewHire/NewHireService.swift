@@ -10,9 +10,9 @@ public protocol NewHireServiceProtocol {
 }
 
 public class NewHireService: NewHireServiceProtocol {
-	var dataSource: DataSourceProtocol
+	private let dataSource: RemoteDataSourceProtocol
 
-	public init(dataSource: DataSourceProtocol = RemoteDataSource()) {
+	public init(dataSource: RemoteDataSourceProtocol = RemoteDataSource()) {
 		self.dataSource = dataSource
 	}
 	

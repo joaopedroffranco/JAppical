@@ -6,7 +6,7 @@ import JData
 import JUI
 import SwiftUI
 
-class TaskRowViewModel: ObservableObject, Identifiable {
+class TodoTaskRowViewModel: ObservableObject, Identifiable {
 	let id: String
 	let text: String
 	let dueDate: String
@@ -32,7 +32,7 @@ class TaskRowViewModel: ObservableObject, Identifiable {
 		self.isDone = isDone
 	}
 	
-	init(from task: Task) {
+	init(from task: TodoTask) {
 		self.id = task.id
 		self.text = task.text
 		self.isDone = task.isDone

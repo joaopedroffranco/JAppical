@@ -15,7 +15,7 @@ struct DashboardView: View {
 					logoHeader
 					header
 					Separator()
-					tasks
+					todoTodoTasks
 					Separator()
 					newHires
 				}
@@ -35,7 +35,7 @@ private extension DashboardView {
 				.scaledToFill()
 				.frame(width: 135, height: 49)
 			
-			Text("Welcome back, Joao") // TODO: Get name
+			Text(Strings.Dashboard.welcomeBack(viewModel.loggedUser.name))
 				.font(DesignSystem.Fonts.title)
 		}
 	}
@@ -60,10 +60,10 @@ private extension DashboardView {
 	}
 	
 	@ViewBuilder
-	var tasks: some View {
+	var todoTodoTasks: some View {
 		section(title: Strings.Dashboard.Sections.todos) {
 			JCard {
-				TasksCard()
+				TodoTodoTasksCard()
 			}
 		}
 	}

@@ -4,7 +4,7 @@
 
 import Foundation
 
-enum TaskRequest: Requestable {
+enum TodoTaskRequest: Requestable {
 	case fetch
 
 	var method: RequestMethod { .get }
