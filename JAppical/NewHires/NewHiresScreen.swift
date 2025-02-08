@@ -4,10 +4,11 @@ import SwiftUI
 import JUI
 
 struct NewHiresScreen: View {
+	@State var viewModel = NewHiresViewModel()
 	@State var showSortingOptions = false
 	
 	var body: some View {
-		NewHiresView()
+		NewHiresView(viewModel: viewModel)
 			.navigationBarTitleDisplayMode(.inline)
 			.navigationTitle(Strings.newsHires)
 			.navigationBarBackButtonHidden(false)
@@ -26,5 +27,6 @@ struct NewHiresScreen: View {
 					}
 				}
 			}
+			.onAppear { viewModel.setup() }
 	}
 }

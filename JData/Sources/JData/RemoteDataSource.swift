@@ -10,32 +10,31 @@ public typealias RemotePublisher<T: Decodable> = AnyPublisher<T, Error>
 
 /// Possible errors for a remote data source.
 public enum RemoteDataSourceError: Error {
-  case invalidRequest
-  case decodeError
-  case requestFailed
+	case invalidRequest
+	case decodeError
+	case requestFailed
 }
 
-/// Conforms to `DataSourceProtocol` and wraps the native `URLSession` for data fetching.
-///
-/// This implementation uses `Combine` to align with the app's reactive approach.
 public class RemoteDataSource: DataSourceProtocol {
-  let session: URLSession
+	let session: URLSession
+	let cacheStorage: URLCache.StoragePolicy
 
-	/// It utilizes the common `.shared` session, but allows for dependency injection of a custom session for testing purposes.
-  public init(session: URLSession = .shared) {
-    self.session = session
-  }
+	public init(session: URLSession = .shared, cacheStorage: URLCache.StoragePolicy = .allowedInMemoryOnly) {
+		self.session = session
+		self.cacheStorage = cacheStorage
+	}
 	
-	/// Fetches data based on a given `Requestable` and decodes it into a `Decodable` type.
-	///
-	/// - Parameter request: An instance conforming to `Requestable`.
-	/// - Returns: A `RemotePublisher` that publishes the decoded `Decodable` data.
 	public func fetch<T>(request: Requestable) -> RemotePublisher<T> where T : Decodable {
 		guard let request = request.request else {
 			return Fail(error: RemoteDataSourceError.invalidRequest).eraseToAnyPublisher()
 		}
-
+		
 		return session.dataTaskPublisher(for: request)
+//			.handleEvents(receiveOutput: { [weak self] data, response in
+//				guard let self = self else { return }
+//				let cachedResponse = CachedURLResponse(response: response, data: data, storagePolicy: self.cacheStorage)
+//				URLCache.shared.storeCachedResponse(cachedResponse, for: request)
+//			})
 			.map { $0.data }
 			.decode(type: T.self, decoder: JSONDecoder())
 			.mapError { _ in RemoteDataSourceError.decodeError }

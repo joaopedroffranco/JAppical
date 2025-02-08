@@ -1,8 +1,11 @@
 // Created in 2025
 
+import Foundation
 import Combine
+import JFoundation
 
 public protocol NewHireServiceProtocol {
+	func getThisMonth() -> AnyPublisher<[NewHire]?, Never>
 	func getAll() -> AnyPublisher<[NewHire]?, Never>
 }
 
@@ -11,6 +14,13 @@ public class NewHireService: NewHireServiceProtocol {
 
 	public init(dataSource: DataSourceProtocol = RemoteDataSource()) {
 		self.dataSource = dataSource
+	}
+	
+	public func getThisMonth() -> AnyPublisher<[NewHire]?, Never> {
+		getAll()
+			.map { newHires in newHires?.filter { $0.startDate.asDate.isThisMonth } }
+			.eraseToAnyPublisher()
+			
 	}
 	
 	public func getAll() -> AnyPublisher<[NewHire]?, Never> {

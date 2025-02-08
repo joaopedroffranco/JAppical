@@ -25,7 +25,9 @@
 		C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D22D561DC2006269EA /* LoginScreen.swift */; };
 		C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D42D561DC8006269EA /* LoginView.swift */; };
 		C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */; };
-		C2C5404F2D567BEB007EFDAC /* TasksCardViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404E2D567BEB007EFDAC /* TasksCardViewData.swift */; };
+		C2C5404F2D567BEB007EFDAC /* TaskCardViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404E2D567BEB007EFDAC /* TaskCardViewData.swift */; };
+		C2C540512D578DAB007EFDAC /* NewHiresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C540502D578DAB007EFDAC /* NewHiresViewModel.swift */; };
+		C2C540532D578E90007EFDAC /* NewHireViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C540522D578E90007EFDAC /* NewHireViewData.swift */; };
 		C2E63E7C2D54F2C500187560 /* TasksCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7B2D54F2C500187560 /* TasksCard.swift */; };
 		C2E63E7F2D55089600187560 /* NewHiresScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7E2D55089600187560 /* NewHiresScreen.swift */; };
 		C2E63E812D55089D00187560 /* NewHiresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E802D55089D00187560 /* NewHiresView.swift */; };
@@ -70,7 +72,9 @@
 		C2A6B2D22D561DC2006269EA /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		C2A6B2D42D561DC8006269EA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		C2C5404E2D567BEB007EFDAC /* TasksCardViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCardViewData.swift; sourceTree = "<group>"; };
+		C2C5404E2D567BEB007EFDAC /* TaskCardViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardViewData.swift; sourceTree = "<group>"; };
+		C2C540502D578DAB007EFDAC /* NewHiresViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHiresViewModel.swift; sourceTree = "<group>"; };
+		C2C540522D578E90007EFDAC /* NewHireViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHireViewData.swift; sourceTree = "<group>"; };
 		C2E63E7B2D54F2C500187560 /* TasksCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCard.swift; sourceTree = "<group>"; };
 		C2E63E7E2D55089600187560 /* NewHiresScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresScreen.swift; sourceTree = "<group>"; };
 		C2E63E802D55089D00187560 /* NewHiresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresView.swift; sourceTree = "<group>"; };
@@ -190,7 +194,7 @@
 			children = (
 				C22B1A3A2D54E43500121239 /* NewHiresCard.swift */,
 				C2E63E7B2D54F2C500187560 /* TasksCard.swift */,
-				C2C5404E2D567BEB007EFDAC /* TasksCardViewData.swift */,
+				C2C5404E2D567BEB007EFDAC /* TaskCardViewData.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -219,6 +223,8 @@
 			children = (
 				C2E63E7E2D55089600187560 /* NewHiresScreen.swift */,
 				C2E63E802D55089D00187560 /* NewHiresView.swift */,
+				C2C540502D578DAB007EFDAC /* NewHiresViewModel.swift */,
+				C2C540522D578E90007EFDAC /* NewHireViewData.swift */,
 			);
 			path = NewHires;
 			sourceTree = "<group>";
@@ -365,13 +371,15 @@
 				C22288A72D53D4980037C34E /* Persistence.swift in Sources */,
 				C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */,
 				C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */,
+				C2C540532D578E90007EFDAC /* NewHireViewData.swift in Sources */,
 				C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */,
 				C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */,
 				C22288A02D53D4970037C34E /* ContentView.swift in Sources */,
 				C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */,
+				C2C540512D578DAB007EFDAC /* NewHiresViewModel.swift in Sources */,
 				C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */,
 				C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */,
-				C2C5404F2D567BEB007EFDAC /* TasksCardViewData.swift in Sources */,
+				C2C5404F2D567BEB007EFDAC /* TaskCardViewData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

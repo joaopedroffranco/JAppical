@@ -39,11 +39,11 @@ private extension DashboardViewModel {
 	}
 	
 	func getThisMonthHires() {
-		newHireService.getAll()
+		newHireService.getThisMonth()
 			.receive(on: DispatchQueue.main)
-			.map { newHires in
-				guard let newHires = newHires else { return [] }
-				return newHires.filter { $0.startDate.asDate.isThisMonth }.map { $0.avatar?.asUrl }
+			.map { thisMonth in
+				guard let thisMonth = thisMonth else { return [] }
+				return thisMonth.map { $0.avatar?.asUrl }
 			}
 			.assign(to: &$thisMonthHires)
 	}

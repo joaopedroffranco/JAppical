@@ -10,7 +10,7 @@ struct DashboardView: View {
 	
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
-			VStack(spacing: sectionsMargin) {
+			LazyVStack(spacing: sectionsMargin) {
 				Group {
 					logoHeader
 					header
