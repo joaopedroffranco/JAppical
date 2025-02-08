@@ -18,15 +18,25 @@ class NewHiresViewModel: ObservableObject {
 	func setup() {
 		getNewHires()
 	}
+	
+	// MARK: - Sorting
+	func sortByEarliest() {
+		newHires.sort { $0.startDateTimeInterval < $1.startDateTimeInterval }
+	}
+	
+	func sortByLatest() {
+		newHires.sort { $0.startDateTimeInterval > $1.startDateTimeInterval }
+	}
 }
 
+// MARK: - Get
 private extension NewHiresViewModel {
 	func getNewHires() {
 		newHireService.getAll()
 			.receive(on: DispatchQueue.main)
 			.map { newHires in
 				guard let newHires = newHires else { return [] }
-				return newHires.map { NewHireViewData(from: $0) }
+				return newHires.map { NewHireViewData(from: $0) }.sorted { $0.startDateTimeInterval < $1.startDateTimeInterval }
 			}
 			.assign(to: &$newHires)
 	}

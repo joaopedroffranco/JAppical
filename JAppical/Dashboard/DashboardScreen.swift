@@ -11,7 +11,7 @@ struct DashboardScreen: View {
 			.navigationBarTitleDisplayMode(.inline)
 			.navigationTitle(Strings.home)
 			.toolbar {
-				ToolbarItem(placement: .navigationBarTrailing) { Avatar() }
+				ToolbarItem(placement: .navigationBarTrailing) { Avatar() } // TODO: Get user avatar
 			}
 			.onAppear { viewModel.setup() }
 	}

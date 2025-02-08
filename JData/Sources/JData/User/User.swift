@@ -6,17 +6,14 @@ public struct User {
 	public let id: String
 	public let name: String
 	public let avatar: String?
-	public let tasks: [Task]
 	
 	public init(
 		id: String,
 		name: String,
-		avatar: String? = nil,
-		tasks: [Task] = []
+		avatar: String? = nil
 	) {
 		self.id = id
 		self.name = name
 		self.avatar = avatar
-		self.tasks = tasks
 	}
 }

@@ -14,16 +14,14 @@ struct NewHiresScreen: View {
 			.navigationBarBackButtonHidden(false)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button(action: {
-						showSortingOptions = true
-					}) {
+					Button { showSortingOptions = true } label: {
 						LocalImage(named: DesignSystem.Assets.sortIcon)
 							.scaledToFit()
 							.frame(width: 24, height: 24, alignment: .center)
 					}
 					.confirmationDialog("", isPresented: $showSortingOptions, titleVisibility: .hidden) {
-						Button(Strings.NewHires.sortEarliest) {}
-						Button(Strings.NewHires.sortLatest) {}
+						Button(Strings.NewHires.sortEarliest) { viewModel.sortByEarliest() }
+						Button(Strings.NewHires.sortLatest) { viewModel.sortByLatest() }
 					}
 				}
 			}

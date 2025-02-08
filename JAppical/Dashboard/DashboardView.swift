@@ -71,7 +71,7 @@ private extension DashboardView {
 	@ViewBuilder
 	var newHires: some View {
 		section(title: Strings.Dashboard.Sections.newHires) {
-			NavigationLink(destination: NewHiresScreen()) {
+			NavigationLink { NewHiresScreen() } label: {
 				JCard {
 					HStack {
 						NewHiresCard(avatars: viewModel.thisMonthHires)
