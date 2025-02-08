@@ -4,7 +4,7 @@ import SwiftUI
 import JUI
 
 struct NewHiresScreen: View {
-	@State var viewModel = NewHiresViewModel()
+	@StateObject var viewModel = NewHiresViewModel()
 	@State var showSortingOptions = false
 	
 	var body: some View {

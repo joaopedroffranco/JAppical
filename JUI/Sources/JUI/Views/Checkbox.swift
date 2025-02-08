@@ -4,11 +4,11 @@ import SwiftUI
 
 public struct Checkbox: View {
 	private var isChecked: Bool
-	private var didTap: (() -> Void)?
+	private var didTap: () -> Void
 	
 	private var size = 24.0
 	
-	public init(_ isChecked: Bool = false, didTap: (() -> Void)? = nil) {
+	public init(_ isChecked: Bool = false, didTap: @escaping () -> Void = {}) {
 		self.isChecked = isChecked
 		self.didTap = didTap
 	}
@@ -22,12 +22,12 @@ public struct Checkbox: View {
 					.background(DesignSystem.Colors.green.opacity(0.4))
 			} else {
 				Circle()
-					.stroke(DesignSystem.Colors.gray.opacity(0.9), lineWidth: 3)
+					.stroke(DesignSystem.Colors.gray.opacity(0.7), lineWidth: 3)
 			}
 		}
 		.frame(width: size, height: size)
 		.clipShape(Circle())
-		.onTapGesture { didTap?()}
+		.onTapGesture { didTap() }
 	}
 }
 

@@ -10,7 +10,7 @@ struct DashboardView: View {
 	
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
-			LazyVStack(spacing: sectionsMargin) {
+			VStack(spacing: sectionsMargin) {
 				Group {
 					logoHeader
 					header
@@ -63,7 +63,7 @@ private extension DashboardView {
 	var tasks: some View {
 		section(title: Strings.Dashboard.Sections.todos) {
 			JCard {
-				TasksCard(tasks: viewModel.tasks)
+				TasksCard()
 			}
 		}
 	}

@@ -18,9 +18,11 @@ public struct Avatar: View {
 		Group {
 			if let image = image {
 				KFImage.url(image)
+					.resizable()
 					.placeholder { placeholder }
 					.memoryCacheExpiration(.never)
 					.diskCacheExpiration(.days(10))
+					.scaledToFill()
 			} else {
 				placeholder
 			}

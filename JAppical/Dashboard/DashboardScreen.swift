@@ -4,7 +4,7 @@ import SwiftUI
 import JUI
 
 struct DashboardScreen: View {
-	@State private var viewModel = DashboardViewModel()
+	@StateObject private var viewModel = DashboardViewModel()
 	
 	var body: some View {
 		DashboardView(viewModel: viewModel)

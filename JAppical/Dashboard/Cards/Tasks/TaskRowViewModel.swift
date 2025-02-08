@@ -1,32 +1,43 @@
 // Created in 2025
 
 import Foundation
+import Combine
 import JData
 import JUI
 import SwiftUI
 
-struct TaskCardViewData {
+class TaskRowViewModel: ObservableObject, Identifiable {
+	let id: String
 	let text: String
 	let dueDate: String
+	let dueTimeInterval: TimeInterval
 	let color: Color
-	var isDone: Bool
+	@Published var isDone: Bool
+	
+	private var cancellables: Set<AnyCancellable> = []
 
 	init(
+		id: String,
 		text: String,
 		dueDate: String,
+		dueTimeInterval: TimeInterval,
 		color: Color,
 		isDone: Bool
 	) {
+		self.id = id
 		self.text = text
 		self.dueDate = dueDate
+		self.dueTimeInterval = dueTimeInterval
 		self.color = color
 		self.isDone = isDone
 	}
 	
 	init(from task: Task) {
+		self.id = task.id
 		self.text = task.text
 		self.isDone = task.isDone
-		
+		self.dueTimeInterval = task.dueDate
+
 		let dueDate = task.dueDate.asDate
 		if dueDate.isToday {
 			self.dueDate = Strings.today

@@ -20,12 +20,16 @@ public class NewHireService: NewHireServiceProtocol {
 		getAll()
 			.map { newHires in newHires?.filter { $0.startDate.asDate.isThisMonth } }
 			.eraseToAnyPublisher()
-			
 	}
 	
 	public func getAll() -> AnyPublisher<[NewHire]?, Never> {
-		dataSource.fetch(request: NewHireRequest.fetchAll)
+		let fetchPublisher: AnyPublisher<[NewHire]?, Never> = dataSource
+			.fetch(request: NewHireRequest.fetchAll)
 			.replaceError(with: nil)
+			.eraseToAnyPublisher()
+		
+		return fetchPublisher
+			.map { newHires in newHires?.sorted { $0.startDate < $1.startDate } }
 			.eraseToAnyPublisher()
 	}
 }
