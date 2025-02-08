@@ -18,12 +18,11 @@ public struct Avatar: View {
 		Group {
 			if let image = image {
 				KFImage.url(image)
+					.placeholder { placeholder }
 					.memoryCacheExpiration(.never)
 					.diskCacheExpiration(.days(10))
 			} else {
-				LocalImage(named: DesignSystem.Assets.placeholderAvatar)
-					.padding(6)
-					.background(DesignSystem.Colors.lightGray)
+				placeholder
 			}
 		}
 		.frame(width: size, height: size)
@@ -32,6 +31,13 @@ public struct Avatar: View {
 			Circle()
 				.stroke(borderColor ?? .white, lineWidth: borderColor == nil ? .zero : 2)
 		)
+	}
+	
+	@ViewBuilder
+	private var placeholder: some View {
+		LocalImage(named: DesignSystem.Assets.placeholderAvatar)
+			.padding(6)
+			.background(DesignSystem.Colors.lightGray)
 	}
 }
 

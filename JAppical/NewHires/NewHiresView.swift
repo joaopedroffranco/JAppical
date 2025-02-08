@@ -46,7 +46,6 @@ private extension NewHiresView {
 			
 			if !isLast {
 				Separator()
-					.background(.red)
 			}
 		}
 	}

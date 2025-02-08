@@ -5,6 +5,9 @@ import Foundation
 public enum Strings {
 	public static var home = "Appical"
 	public static var newsHires = "Recently assigned new hires"
+	public static var today = "Today"
+	public static var tomorrow = "Tomorrow"
+	public static func dueDate(_ date: String) -> String { "Due \(date)" }
 	
 	public enum Login {
 		public static var title = "Log in"

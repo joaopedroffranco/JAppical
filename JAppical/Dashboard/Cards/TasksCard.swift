@@ -3,13 +3,15 @@
 import SwiftUI
 import JUI
 
-struct TodosCard: View {
-	private var tasks: [String] = [] // TODO: ViewModel
-	private var isCompleted: Bool = false // TODO: ViewModel
+struct TasksCard: View {
+	private var tasks: [TaskCardViewData]
 
 	private var tasksCount: Int
+	private var isCompleted: Bool {
+		tasks.filter { !$0.isDone }.isEmpty
+	}
 	
-	init(tasks: [String]) {
+	init(tasks: [TaskCardViewData]) {
 		self.tasks = tasks
 		self.tasksCount = tasks.count
 	}
@@ -38,25 +40,26 @@ struct TodosCard: View {
 	}
 }
 
-private extension TodosCard {
+private extension TasksCard {
 	@ViewBuilder
-	func taskView(_ string: String, isFirst: Bool, isLast: Bool) -> some View {
+	func taskView(_ task: TaskCardViewData, isFirst: Bool, isLast: Bool) -> some View {
 		HStack(alignment: .top, spacing: DesignSystem.Spacings.default) {
 			Checkbox() // TODO: get task state
 			
 			VStack(alignment: .leading, spacing: DesignSystem.Spacings.default) {
-				Text(string)
+				Text(task.text)
 					.font(DesignSystem.Fonts.description)
 					.foregroundColor(DesignSystem.Colors.gray)
-				// .strikethrough()
+					.strikethrough(task.isDone)
 				
 				HStack(alignment: .center, spacing: DesignSystem.Spacings.small) {
-					LocalImage(named: DesignSystem.Assets.calendarIcon)
+					LocalImage(named: DesignSystem.Assets.calendarIcon, renderingMode: .template)
 						.frame(width: 12, height: 12, alignment: .center)
+						.foregroundColor(task.color)
 					
-					Text("Today") // TODO: Get formated due time
+					Text(task.dueDate)
 						.font(DesignSystem.Fonts.description)
-						.foregroundColor(DesignSystem.Colors.gray)
+						.foregroundColor(task.color)
 				}
 			}
 		}
@@ -82,13 +85,30 @@ private extension TodosCard {
 	}
 }
 
-struct TodosCard_Previews: PreviewProvider {
+struct TasksCard_Previews: PreviewProvider {
+	static let tasks: [TaskCardViewData] = [
+		.init(
+			text: "Set up introductory meeting with your team",
+			dueDate: "Today",
+			color: .red,
+			isDone: false
+		),
+		.init(
+			text: "Collect your new hire’s access card",
+			dueDate: "Tomorrow",
+			color: .green,
+			isDone: false
+		),
+		.init(
+			text: "Set up 1:1 coffee dates with a minimum of 4 people from different departments",
+			dueDate: "Today",
+			color: .blue,
+			isDone: true
+		),
+	]
+
 	static var previews: some View {
-		TodosCard(tasks: [
-			"Set up introductory meeting with your team",
-			"Collect your new hire’s access card",
-			"Set up 1:1 coffee dates with a minimum of 4 people from different departments"
-		])
+		TasksCard(tasks: tasks)
 		.padding(DesignSystem.Spacings.margin)
 		.previewLayout(.sizeThatFits)
 	}

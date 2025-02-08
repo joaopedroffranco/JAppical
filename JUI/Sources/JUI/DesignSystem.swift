@@ -17,6 +17,7 @@ public enum DesignSystem {
 		public static let darkGray = Color(red: 73/255, green: 74/255, blue: 74/255)
 		public static let lightGray = Color(red: 242/255, green: 242/255, blue: 242/255)
 		public static let green = Color(red: 34/255, green: 129/255, blue: 90/255)
+		public static let red = Color(red: 221/255, green: 0/255, blue: 7/255)
 
 		public static let background = white
 		public static let primary = Color(red: 0/255, green: 106/255, blue: 255/255)

@@ -17,3 +17,5 @@ public struct Task {
 		self.isDone = isDone
 	}
 }
+
+extension Task: Codable {}

@@ -24,7 +24,9 @@
 		C22B1A3B2D54E43500121239 /* NewHiresCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A3A2D54E43500121239 /* NewHiresCard.swift */; };
 		C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D22D561DC2006269EA /* LoginScreen.swift */; };
 		C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D42D561DC8006269EA /* LoginView.swift */; };
-		C2E63E7C2D54F2C500187560 /* TodosCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7B2D54F2C500187560 /* TodosCard.swift */; };
+		C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */; };
+		C2C5404F2D567BEB007EFDAC /* TasksCardViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404E2D567BEB007EFDAC /* TasksCardViewData.swift */; };
+		C2E63E7C2D54F2C500187560 /* TasksCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7B2D54F2C500187560 /* TasksCard.swift */; };
 		C2E63E7F2D55089600187560 /* NewHiresScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E7E2D55089600187560 /* NewHiresScreen.swift */; };
 		C2E63E812D55089D00187560 /* NewHiresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E63E802D55089D00187560 /* NewHiresView.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +69,9 @@
 		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
 		C2A6B2D22D561DC2006269EA /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		C2A6B2D42D561DC8006269EA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C2E63E7B2D54F2C500187560 /* TodosCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosCard.swift; sourceTree = "<group>"; };
+		C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		C2C5404E2D567BEB007EFDAC /* TasksCardViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCardViewData.swift; sourceTree = "<group>"; };
+		C2E63E7B2D54F2C500187560 /* TasksCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCard.swift; sourceTree = "<group>"; };
 		C2E63E7E2D55089600187560 /* NewHiresScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresScreen.swift; sourceTree = "<group>"; };
 		C2E63E802D55089D00187560 /* NewHiresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +170,7 @@
 		C22B1A2B2D54B57B00121239 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */,
 				C22B1A2E2D54B60100121239 /* DashboardView.swift */,
 				C22B1A302D54B64900121239 /* DashboardScreen.swift */,
 				C22B1A392D54E41500121239 /* Cards */,
@@ -184,7 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				C22B1A3A2D54E43500121239 /* NewHiresCard.swift */,
-				C2E63E7B2D54F2C500187560 /* TodosCard.swift */,
+				C2E63E7B2D54F2C500187560 /* TasksCard.swift */,
+				C2C5404E2D567BEB007EFDAC /* TasksCardViewData.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -353,7 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C22B1A3B2D54E43500121239 /* NewHiresCard.swift in Sources */,
-				C2E63E7C2D54F2C500187560 /* TodosCard.swift in Sources */,
+				C2E63E7C2D54F2C500187560 /* TasksCard.swift in Sources */,
 				C2E63E7F2D55089600187560 /* NewHiresScreen.swift in Sources */,
 				C2E63E812D55089D00187560 /* NewHiresView.swift in Sources */,
 				C22288A72D53D4980037C34E /* Persistence.swift in Sources */,
@@ -362,8 +368,10 @@
 				C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */,
 				C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */,
 				C22288A02D53D4970037C34E /* ContentView.swift in Sources */,
+				C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */,
 				C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */,
 				C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */,
+				C2C5404F2D567BEB007EFDAC /* TasksCardViewData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,8 +535,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +548,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -555,8 +565,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,7 +578,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

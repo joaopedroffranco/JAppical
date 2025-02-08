@@ -4,8 +4,8 @@
 
 import Foundation
 
-enum NewHiresRequest: Requestable {
-	case fetch
+enum NewHireRequest: Requestable {
+	case fetchAll
 
 	var method: RequestMethod { .get }
 	var host: String { "https://67a5f0ca510789ef0df9d159.mockapi.io" }

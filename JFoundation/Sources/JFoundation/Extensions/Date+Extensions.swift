@@ -7,7 +7,8 @@ import Foundation
 public extension Date {
 	var asString: String {
 		let formatter = DateFormatter()
-		formatter.dateFormat = "dd MM yyyy"
+		formatter.dateFormat = "d MMM yyyy"
+		formatter.locale = Locale(identifier: "en_US")
 		
 		return formatter.string(from: self)
 	}
@@ -18,6 +19,19 @@ public extension Date {
 	
 	var isTomorrow: Bool {
 		Calendar.current.isDateInTomorrow(self)
+	}
+	
+	var isThisMonth: Bool {
+		let calendar = Calendar.current
+		let currentDate = Date.now
+		
+		let currentMonth = calendar.component(.month, from: currentDate)
+		let currentYear = calendar.component(.year, from: currentDate)
+
+		let givenMonth = calendar.component(.month, from: self)
+		let givenYear = calendar.component(.year, from: self)
+		
+		return currentMonth == givenMonth && currentYear == givenYear
 	}
 }
 

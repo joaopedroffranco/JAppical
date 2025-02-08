@@ -4,6 +4,8 @@ import SwiftUI
 import JUI
 
 struct DashboardView: View {
+	@ObservedObject var viewModel: DashboardViewModel
+	
 	private let sectionsMargin = DesignSystem.Spacings.margin
 	
 	var body: some View {
@@ -13,7 +15,7 @@ struct DashboardView: View {
 					logoHeader
 					header
 					Separator()
-					todo
+					tasks
 					Separator()
 					newHires
 				}
@@ -58,14 +60,10 @@ private extension DashboardView {
 	}
 	
 	@ViewBuilder
-	var todo: some View {
+	var tasks: some View {
 		section(title: Strings.Dashboard.Sections.todos) {
 			JCard {
-				TodosCard(tasks: [
-					"Set up introductory meeting with your team",
-					"Collect your new hire’s access card",
-					"Set up 1:1 coffee dates with a minimum of 4 people from different departments"
-				])
+				TasksCard(tasks: viewModel.tasks)
 			}
 		}
 	}
@@ -76,7 +74,7 @@ private extension DashboardView {
 			NavigationLink(destination: NewHiresScreen()) {
 				JCard {
 					HStack {
-						NewHiresCard()
+						NewHiresCard(avatars: viewModel.thisMonthHires)
 						Spacer()
 					}
 				}
@@ -102,8 +100,8 @@ private extension DashboardView {
 }
 
 // MARK: - Preview
-struct DashboardView_Previews: PreviewProvider {
-	static var previews: some View {
-		DashboardView()
-	}
-}
+//struct DashboardView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		DashboardView()
+//	}
+//}

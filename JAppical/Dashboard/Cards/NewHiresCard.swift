@@ -4,6 +4,15 @@ import SwiftUI
 import JUI
 
 struct NewHiresCard: View {
+	private var avatars: [URL?]
+	
+	private var avatarsCount: Int { avatars.count }
+	private let maxNumberOfAvatars = 5
+
+	init(avatars: [URL?]) {
+		self.avatars = avatars
+	}
+	
 	var body: some View {
 		VStack(alignment: .leading, spacing: .zero) {
 			HStack(alignment: .center, spacing: DesignSystem.Spacings.default) {
@@ -17,11 +26,11 @@ struct NewHiresCard: View {
 			.padding(.bottom, 32)
 
 			HStack(alignment: .center, spacing: 22) {
-				Text("4") // TODO: Get real number
+				Text(avatarsCount.description)
 					.font(DesignSystem.Fonts.huge)
 					.foregroundColor(DesignSystem.Colors.primary)
 				
-				avatars([nil, nil])
+				avatarsView
 			}
 			.padding(.bottom, DesignSystem.Spacings.default)
 			
@@ -38,9 +47,9 @@ struct NewHiresCard: View {
 
 private extension NewHiresCard {
 	@ViewBuilder
-	func avatars(_ urls: [URL?]) -> some View {
+	var avatarsView: some View {
 		HStack(spacing: -10.0) {
-			ForEach(urls, id: \.self) {
+			ForEach(avatars.prefix(maxNumberOfAvatars), id: \.self) {
 				Avatar(image: $0, borderColor: DesignSystem.Colors.white)
 			}
 		}
@@ -49,7 +58,10 @@ private extension NewHiresCard {
 
 struct NewHiresCard_Previews: PreviewProvider {
 	static var previews: some View {
-		NewHiresCard()
+		Group {
+			NewHiresCard(avatars: [nil, nil, nil])
+			NewHiresCard(avatars: [nil, nil, nil, nil, nil, nil, nil])
+		}
 			.padding()
 			.previewLayout(.sizeThatFits)
 	}
