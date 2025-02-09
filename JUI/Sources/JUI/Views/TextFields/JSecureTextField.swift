@@ -5,7 +5,6 @@ import SwiftUI
 public struct JSecureTextField: View {
 	@Binding private var text: String
 	@State private var isSecure: Bool = true
-	private let isEnabled: Bool
 	private let errorMessage: String?
 	private let placeholder: String
 	
@@ -17,7 +16,6 @@ public struct JSecureTextField: View {
 	) {
 		self._text = text
 		self.placeholder = placeholder
-		self.isEnabled = isEnabled
 		self.errorMessage = errorMessage
 	}
 	
@@ -51,7 +49,6 @@ public struct JSecureTextField: View {
 				}
 					.padding(.trailing, 12)
 			)
-			.disabled(!isEnabled)
 			
 			if let errorMessage = errorMessage {
 				Text(errorMessage)

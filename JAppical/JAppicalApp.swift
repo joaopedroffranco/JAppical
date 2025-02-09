@@ -11,6 +11,8 @@ import JData
 
 @main
 struct JAppicalApp: App {
+	@StateObject private var authenticationManager = AuthenticationManager()
+	
 	init() {
 		FontLoader.registerFonts()
 		NavigationBarAppearance.setup()
@@ -20,15 +22,16 @@ struct JAppicalApp: App {
 		storage.set(Credentials.expectedEmail, forKey: Credentials.expectedEmailKey)
 		storage.set(Credentials.expectedPassword, forKey: Credentials.expectedPasswordKey)
 	}
-
+	
 	var body: some Scene {
 		WindowGroup {
-//			NavigationView {
-//				 DashboardScreen() // TODO: Check authentication
-//			}
-			
-			
-			LoginScreen()
+			if authenticationManager.loggedUser == nil {
+				LoginScreen(authenticationManager: authenticationManager)
+			} else {
+				NavigationView {
+					DashboardScreen(authenticationManager: authenticationManager)
+				}
+			}
 		}
 	}
 }

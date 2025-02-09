@@ -23,6 +23,7 @@
 		C22B1A382D54BA4200121239 /* JUI in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A372D54BA4200121239 /* JUI */; };
 		C22B1A3B2D54E43500121239 /* NewHiresCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A3A2D54E43500121239 /* NewHiresCard.swift */; };
 		C25333EB2D57BAC9002FF7F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25333EA2D57BAC9002FF7F0 /* LoginViewModel.swift */; };
+		C25C58B12D58C2BF00501D2E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */; };
 		C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D22D561DC2006269EA /* LoginScreen.swift */; };
 		C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D42D561DC8006269EA /* LoginView.swift */; };
 		C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */; };
@@ -70,6 +71,7 @@
 		C22B1A302D54B64900121239 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		C22B1A3A2D54E43500121239 /* NewHiresCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresCard.swift; sourceTree = "<group>"; };
 		C25333EA2D57BAC9002FF7F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		C27D83EB2D53D51F004BDF14 /* JData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JData; sourceTree = "<group>"; };
 		C27D83EC2D53D527004BDF14 /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
 		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		C222889C2D53D4970037C34E /* JAppical */ = {
 			isa = PBXGroup;
 			children = (
+				C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */,
 				C2A6B2D12D561DB7006269EA /* Login */,
 				C2E63E7D2D55088300187560 /* NewHires */,
 				C22B1A2B2D54B57B00121239 /* Dashboard */,
@@ -394,6 +397,7 @@
 				C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */,
 				C22288A02D53D4970037C34E /* ContentView.swift in Sources */,
 				C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */,
+				C25C58B12D58C2BF00501D2E /* AuthenticationManager.swift in Sources */,
 				C2C540512D578DAB007EFDAC /* NewHiresViewModel.swift in Sources */,
 				C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */,
 				C2C540582D57A980007EFDAC /* TodoTaskRow.swift in Sources */,

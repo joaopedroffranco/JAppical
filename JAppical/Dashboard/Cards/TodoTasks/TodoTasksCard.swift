@@ -3,7 +3,7 @@
 import SwiftUI
 import JUI
 
-struct TodoTodoTasksCard: View {
+struct TodoTasksCard: View {
 	@StateObject private var viewModel = TodoTodoTasksViewModel()
 	
 	var body: some View {
@@ -33,7 +33,7 @@ struct TodoTodoTasksCard: View {
 	}
 }
 
-private extension TodoTodoTasksCard {
+private extension TodoTasksCard {
 	@ViewBuilder
 	var emptyView: some View {
 		VStack(alignment: .center, spacing: DesignSystem.Spacings.default) {
@@ -47,7 +47,7 @@ private extension TodoTodoTasksCard {
 	}
 }
 
-//struct TodoTodoTasksCard_Previews: PreviewProvider {
+//struct TodoTasksCard_Previews: PreviewProvider {
 //	static let todoTodoTasks: [String: TodoTaskCardViewData] = [
 //		"1": .init(
 //			text: "Set up introductory meeting with your team",

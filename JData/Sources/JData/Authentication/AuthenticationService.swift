@@ -1,18 +1,15 @@
-//
-//  Created by Joao Pedro Franco on 15/07/24.
-//
+// Created in 2025
 
-import Combine
 import Foundation
 
-public protocol UserServiceProtocol {
+public protocol AuthenticationServiceProtocol {
 	func emailExists(_ email: String) async -> Bool
 	func authenticate(email: String, password: String) async -> Bool
-	func getLoggedUser() -> User?
+	func getUser() -> User?
 	func logout()
 }
 
-public class UserService: UserServiceProtocol {
+public class AuthenticationService: AuthenticationServiceProtocol {
 	private let storage: StorageProtocol
 	
 	public init(storage: StorageProtocol = UserDefaultsStorage()) {
@@ -35,7 +32,7 @@ public class UserService: UserServiceProtocol {
 		return true
 	}
 	
-	public func getLoggedUser() -> User? {
+	public func getUser() -> User? {
 		storage.get(forKey: Credentials.loggedUserKey)
 	}
 	
@@ -43,3 +40,4 @@ public class UserService: UserServiceProtocol {
 		storage.remove(forKey: Credentials.loggedUserKey)
 	}
 }
+

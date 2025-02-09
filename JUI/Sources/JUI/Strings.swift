@@ -12,6 +12,7 @@ public enum Strings {
 	public enum Login {
 		public static let title = "Log in"
 		public static let loginIn = "Log in"
+		public static let loginOut = "Log out"
 		public static let next = "Next"
 		public static let email = "Email"
 		public static let password = "Password"

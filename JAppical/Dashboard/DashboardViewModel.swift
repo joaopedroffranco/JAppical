@@ -4,44 +4,46 @@ import Foundation
 import Combine
 import JData
 
+enum DashboardViewState {
+	case loading
+	case data(thisMonthHires: [URL?]?)
+}
+
 class DashboardViewModel: ObservableObject {
 	private let newHireService: NewHireServiceProtocol
-	private let userService: UserServiceProtocol
+	private let authenticationManager: AuthenticationManager
 	
-	@Published var thisMonthHires: [URL?] = []
-	@Published var loggedUser: (avatar: URL?, name: String) = (nil, "")
+	@Published var state: DashboardViewState = .loading
+	var loggedUser: (avatar: URL?, name: String) {
+		(avatar: authenticationManager.loggedUser?.avatar?.asUrl, name: authenticationManager.loggedUser?.name ?? "")
+	}
 	
 	init(
-		newHireService: NewHireServiceProtocol = NewHireService(),
-		userService: UserServiceProtocol = UserService()
+		authenticationManager: AuthenticationManager,
+		newHireService: NewHireServiceProtocol = NewHireService()
 	) {
 		self.newHireService = newHireService
-		self.userService = userService
+		self.authenticationManager = authenticationManager
 	}
 	
 	func setup() {
-		getUser()
 		getThisMonthHires()
 	}
 	
 	func logout() {
-		userService.logout()
+		authenticationManager.logout()
 	}
 }
 
 private extension DashboardViewModel {
-	func getUser() {
-		guard let user = userService.getLoggedUser() else { return }
-		loggedUser = (avatar: user.avatar?.asUrl, name: user.name)
-	}
-	
 	func getThisMonthHires() {
 		newHireService.getThisMonth()
 			.receive(on: DispatchQueue.main)
 			.map { thisMonth in
-				guard let thisMonth = thisMonth else { return [] }
-				return thisMonth.map { $0.avatar?.asUrl }
+				guard let thisMonth = thisMonth else { return .data(thisMonthHires: nil) }
+				let thisMonthHires = thisMonth.map { $0.avatar?.asUrl }
+				return .data(thisMonthHires: thisMonthHires)
 			}
-			.assign(to: &$thisMonthHires)
+			.assign(to: &$state)
 	}
 }

@@ -9,19 +9,29 @@ struct DashboardView: View {
 	private let sectionsMargin = DesignSystem.Spacings.margin
 	
 	var body: some View {
-		ScrollView(.vertical, showsIndicators: false) {
-			VStack(spacing: sectionsMargin) {
-				Group {
-					logoHeader
-					header
-					Separator()
-					todoTodoTasks
-					Separator()
-					newHires
-				}
-				.padding(.horizontal, DesignSystem.Spacings.margin)
+		switch viewModel.state {
+		case .loading:
+			VStack {
+				Loading()
 			}
-			.padding(.top, sectionsMargin)
+		case let .data(thisMonthHires):
+			ScrollView(.vertical, showsIndicators: false) {
+				VStack(spacing: sectionsMargin) {
+					Group {
+						logoHeader
+						header
+						Separator()
+						todoTodoTasks
+						
+						if let thisMonthHires = thisMonthHires, !thisMonthHires.isEmpty {
+							Separator()
+							newHires(thisMonthHires)
+						}
+					}
+					.padding(.horizontal, DesignSystem.Spacings.margin)
+				}
+				.padding(.top, sectionsMargin)
+			}
 		}
 	}
 }
@@ -63,18 +73,18 @@ private extension DashboardView {
 	var todoTodoTasks: some View {
 		section(title: Strings.Dashboard.Sections.todos) {
 			JCard {
-				TodoTodoTasksCard()
+				TodoTasksCard()
 			}
 		}
 	}
 	
 	@ViewBuilder
-	var newHires: some View {
+	func newHires(_ avatars: [URL?]) -> some View {
 		section(title: Strings.Dashboard.Sections.newHires) {
 			NavigationLink { NewHiresScreen() } label: {
 				JCard {
 					HStack {
-						NewHiresCard(avatars: viewModel.thisMonthHires)
+						NewHiresCard(avatars: avatars)
 						Spacer()
 					}
 				}

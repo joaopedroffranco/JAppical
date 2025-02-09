@@ -15,16 +15,13 @@ enum LoginViewState {
 	case logged
 }
 
+@MainActor
 class LoginViewModel: ObservableObject {
-	private let service: UserServiceProtocol
+	private let authenticationManager: AuthenticationManager
 	
 	@Published var inputEmail: String = ""
 	@Published var inputPassword: String = ""
 	@Published var state: LoginViewState = .inputEmail
-	
-	var isEmailEnabled: Bool {
-		state == .emailLoading || state == .inputEmail || state == .emailInvalid || state == .emailNotExist
-	}
 	
 	var emailErrorMessage: String? {
 		switch state {
@@ -33,7 +30,7 @@ class LoginViewModel: ObservableObject {
 		default: return nil
 		}
 	}
-	
+
 	var isPasswordVisible: Bool {
 		state == .inputPassword || state == .wrongPassword || state == .authenticationLoading
 	}
@@ -45,39 +42,38 @@ class LoginViewModel: ObservableObject {
 		}
 	}
 	
-	init(service: UserServiceProtocol = UserService()) {
-		self.service = service
+	init(authenticationManager: AuthenticationManager) {
+		self.authenticationManager = authenticationManager
 	}
 	
 	func validateEmail() {
-		switch state {
-		case .inputEmail, .emailInvalid, .emailNotExist:
-			guard inputEmail.isValidEmail else { return state = .emailInvalid }
-			state = .emailLoading
-			Task {
-				guard await service.emailExists(inputEmail) else {
-					Task { @MainActor in state = .emailNotExist }
-					return
-				}
-				Task { @MainActor in state = .inputPassword }
+		state = .emailLoading
+		Task {
+			guard inputEmail.isValidEmail else {
+				state = .emailInvalid
+				return
 			}
-		default: return
+
+			state = .emailLoading
+			guard await authenticationManager.emailExists(inputEmail) else {
+				state = .emailNotExist
+				return
+			}
+
+			state = .inputPassword
 		}
 	}
 	
 	func authenticate() {
-		switch state {
-		case .inputPassword, .wrongPassword:
-			state = .authenticationLoading
-			Task {
-				guard await service.authenticate(email: inputEmail, password: inputPassword) else {
-					Task { @MainActor in state = .wrongPassword }
-					return
-				}
-				
-				Task { @MainActor in state = .logged }
+		state = .authenticationLoading
+		
+		Task {
+			guard await authenticationManager.authenticate(email: inputEmail, password: inputPassword) else {
+				state = .wrongPassword
+				return
 			}
-		default: return
+			
+			state = .authenticationLoading
 		}
 	}
 }

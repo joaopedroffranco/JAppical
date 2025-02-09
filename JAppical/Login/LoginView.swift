@@ -43,7 +43,7 @@ private extension LoginView {
 				.font(DesignSystem.Fonts.description)
 				.foregroundColor(DesignSystem.Colors.gray)
 
-			JTextField(text: $viewModel.inputEmail, isEnabled: viewModel.isEmailEnabled, errorMessage: viewModel.emailErrorMessage)
+			JTextField(text: $viewModel.inputEmail, errorMessage: viewModel.emailErrorMessage)
 				.keyboardType(.emailAddress)
 				.textInputAutocapitalization(.never)
 		}
@@ -82,7 +82,6 @@ private extension LoginView {
 			Loading()
 		default: EmptyView()
 		}
-		
 	}
 }
 

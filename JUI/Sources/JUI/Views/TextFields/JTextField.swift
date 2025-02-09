@@ -5,18 +5,15 @@ import SwiftUI
 public struct JTextField: View {
 	@Binding private var text: String
 	private let placeholder: String
-	private let isEnabled: Bool
 	private let errorMessage: String?
 	
 	public init(
 		text: Binding<String>,
 		placeholder: String = "",
-		isEnabled: Bool = true,
 		errorMessage: String? = nil
 	) {
 		self._text = text
 		self.placeholder = placeholder
-		self.isEnabled = isEnabled
 		self.errorMessage = errorMessage
 	}
 	
@@ -33,7 +30,6 @@ public struct JTextField: View {
 					RoundedRectangle(cornerRadius: DesignSystem.Radius.textfield)
 						.stroke(DesignSystem.Colors.textfieldBorder, lineWidth: 1)
 				)
-				.disabled(!isEnabled)
 			
 			if let errorMessage = errorMessage {
 				Text(errorMessage)
@@ -50,7 +46,6 @@ struct JTextField_Previews: PreviewProvider {
 			JTextField(text: .constant(""))
 			JTextField(text: .constant(""), placeholder: "Type here...")
 			JTextField(text: .constant(""), errorMessage: "This is an error")
-			JTextField(text: .constant(""), isEnabled: false)
 		}
 		.padding()
 		.previewLayout(.sizeThatFits)
