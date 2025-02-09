@@ -33,12 +33,9 @@ class NewHiresViewModel: ObservableObject {
 // MARK: - Get
 private extension NewHiresViewModel {
 	func getNewHires() {
-		newHireService.getAll()
-			.receive(on: DispatchQueue.main)
-			.map { newHires in
-				guard let newHires = newHires else { return [] }
-				return newHires.map { NewHireViewData(from: $0) }
-			}
-			.assign(to: &$newHires)
+		Task {
+			guard let newHires = await newHireService.getAll() else { newHires = []; return }
+			self.newHires = newHires.map { NewHireViewData(from: $0) }
+		}
 	}
 }

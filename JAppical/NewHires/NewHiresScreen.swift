@@ -25,6 +25,6 @@ struct NewHiresScreen: View {
 					}
 				}
 			}
-			.onAppear { viewModel.setup() }
+			.task { viewModel.setup() }
 	}
 }

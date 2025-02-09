@@ -29,7 +29,7 @@ struct TodoTasksCard: View {
 				}
 			}
 		}
-		.onAppear { viewModel.setup() }
+		.task { viewModel.setup() }
 	}
 }
 

@@ -26,7 +26,7 @@ extension NewHire: Decodable {}
 
 // MARK: - Realm
 public class NewHireRealm: Object {
-	@Persisted var id: String = ""
+	@Persisted(primaryKey: true) var id: String = ""
 	@Persisted var name: String = ""
 	@Persisted var startDate: TimeInterval = 0
 	@Persisted var avatar: String?

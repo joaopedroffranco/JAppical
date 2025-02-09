@@ -6,26 +6,34 @@ import Foundation
 
 enum TodoTaskRequest: Requestable {
 	case fetch
-	case update(id: String, isChecked: Bool)
+	case check(id: String, isChecked: Bool)
+	case update(id: String, task: TodoTask)
 
 	var method: RequestMethod {
 		switch self {
 		case .fetch: return .get
-		case .update: return .put
+		case .update, .check: return .put
 		}
 	}
 
 	var endpoint: String {
 		switch self {
 		case .fetch: return "/tasks"
-		case let .update(id, _): return "/tasks/\(id)"
+		case let .check(id, _), let .update(id, _): return "/tasks/\(id)"
 		}
 	}
 	
 	var params: [String : Any]? {
 		switch self {
 		case .fetch: return nil
-		case let .update(_, isChecked): return ["isDone": isChecked]
+		case let .check(_, isChecked): return ["isDone": isChecked]
+		case let .update(_, task):
+			do {
+				return try JSONSerialization.jsonObject(with: try JSONEncoder().encode(task)) as? [String: Any]
+			} catch {
+				print("JAO deu nao")
+				return nil
+			}
 		}
 	}
 	

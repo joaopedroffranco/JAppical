@@ -6,5 +6,5 @@ import Foundation
 import Combine
 
 public protocol RemoteDataSourceProtocol: AnyObject {
-  func fetch<T: Decodable>(request: Requestable) -> AnyPublisher<T, Error>
+  func fetch<T: Decodable>(request: Requestable) async throws -> T
 }

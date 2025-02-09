@@ -14,19 +14,35 @@ public class RealmStorage: RealmStorageProtocol {
 		guard let instance = instance else { return }
 		
 		let realmObject = object.asRealm
-		
 		do {
-			try instance.write { instance.add(realmObject) }
+			try instance.write { instance.add(realmObject, update: .modified) }
 		} catch {
-			print("Can't write into Realm")
+			return
 		}
+	}
+	
+	public func save<T>(_ objects: [T]) where T : RealmRepresentable {
+		guard let instance = instance else { return }
+		
+		let realmObjects = objects.map { $0.asRealm }
+		do {
+			try instance.write { instance.add(realmObjects, update: .modified) }
+		} catch {
+			return
+		}
+	}
+	
+	public func get<T: RealmRepresentable>(ofType type: T.Type, primaryKey: String) -> T? {
+		guard let instance = instance else { return nil }
+		
+		guard let realmObject = instance.object(ofType: T.RealmType.self, forPrimaryKey: primaryKey) else { return nil }
+		return T(fromRealm: realmObject)
 	}
 
 	public func getAll<T: RealmRepresentable>(ofType type: T.Type) -> [T]? {
 		guard let instance = instance else { return nil }
 		
 		let realmObjects = instance.objects(T.RealmType.self)
-		
-		return realmObjects.map { T(fromRealm: $0) } 
+		return realmObjects.map { T(fromRealm: $0) }
 	}
 }

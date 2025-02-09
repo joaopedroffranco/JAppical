@@ -7,18 +7,25 @@ public struct TodoTask {
 	public let id: String
 	public let text: String
 	public let dueDate: TimeInterval
-	public let isDone: Bool
+	public var isDone: Bool
+	var isRemoteUpdated: Bool = true
+	
+	enum CodingKeys: String, CodingKey {
+		case id, text, dueDate, isDone
+	}
 	
 	public init(
 		id: String,
 		text: String,
 		dueDate: TimeInterval,
-		isDone: Bool
+		isDone: Bool,
+		isRemoteUpdated: Bool = true
 	) {
 		self.id = id
 		self.text = text
 		self.dueDate = dueDate
 		self.isDone = isDone
+		self.isRemoteUpdated = isRemoteUpdated
 	}
 }
 
@@ -26,10 +33,11 @@ extension TodoTask: Codable {}
 
 // MARK: - Realm
 public class TodoTaskRealm: Object {
-	@Persisted var id: String = ""
+	@Persisted(primaryKey: true) var id: String = ""
 	@Persisted var text: String = ""
 	@Persisted var dueDate: TimeInterval = 0
 	@Persisted var isDone: Bool = false
+	@Persisted var isRemoteUpdated: Bool = true
 }
 
 extension TodoTask: RealmRepresentable {
@@ -39,6 +47,7 @@ extension TodoTask: RealmRepresentable {
 		object.text = text
 		object.dueDate = dueDate
 		object.isDone = isDone
+		object.isRemoteUpdated = isRemoteUpdated
 		return object
 	}
 	
@@ -47,5 +56,6 @@ extension TodoTask: RealmRepresentable {
 		self.text = realm.text
 		self.dueDate = realm.dueDate
 		self.isDone = realm.isDone
+		self.isRemoteUpdated = realm.isRemoteUpdated
 	}
 }

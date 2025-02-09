@@ -24,6 +24,6 @@ struct DashboardScreen: View {
 						}
 				}
 			}
-			.onAppear { viewModel.setup() }
+			.task { viewModel.setup() }
 	}
 }
