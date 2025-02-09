@@ -1,6 +1,7 @@
 // Created in 2025
 
 import Foundation
+import RealmSwift
 
 public struct NewHire {
 	public let id: String
@@ -22,3 +23,29 @@ public struct NewHire {
 }
 
 extension NewHire: Decodable {}
+
+// MARK: - Realm
+public class NewHireRealm: Object {
+	@Persisted var id: String = ""
+	@Persisted var name: String = ""
+	@Persisted var startDate: TimeInterval = 0
+	@Persisted var avatar: String?
+}
+
+extension NewHire: RealmRepresentable {
+	public var asRealm: NewHireRealm {
+		let object = NewHireRealm()
+		object.id = id
+		object.name = name
+		object.startDate = startDate
+		object.avatar = avatar
+		return object
+	}
+	
+	public init(fromRealm realm: NewHireRealm) {
+		self.id = realm.id
+		self.name = realm.name
+		self.startDate = realm.startDate
+		self.avatar = realm.avatar
+	}
+}

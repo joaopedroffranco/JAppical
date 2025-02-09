@@ -13,11 +13,14 @@ let package = Package(
 			name: "JData",
 			targets: ["JData"]),
 	],
-	dependencies: [],
+	dependencies: [
+		.package(name: "JFoundation", path: "../JFoundation"),
+		.package(url: "https://github.com/realm/realm-swift.git", exact: "10.39.1"),
+	],
 	targets: [
 		.target(
 			name: "JData",
-			dependencies: []),
+			dependencies: ["JFoundation", .product(name: "RealmSwift", package: "realm-swift")]),
 		.testTarget(
 			name: "JDataTests",
 			dependencies: ["JData"],
