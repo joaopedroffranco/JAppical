@@ -4,6 +4,7 @@ import Foundation
 import Combine
 import JData
 
+@MainActor
 class NewHiresViewModel: ObservableObject {
 	private let newHireService: NewHireServiceProtocol
 	

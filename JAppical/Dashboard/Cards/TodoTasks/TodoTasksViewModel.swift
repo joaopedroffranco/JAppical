@@ -4,16 +4,19 @@ import Foundation
 import Combine
 import JData
 
-class TodoTodoTasksViewModel: ObservableObject {
+@MainActor
+class TodoTasksViewModel: ObservableObject {
 	private let taskService: TodoTaskServiceProtocol
 	
-	@Published var todoTodoTasks: [String: TodoTaskRowViewModel] = [:]
+	@Published var todoTasks: [String: TodoTaskRowViewModel] = [:]
 	@Published var isCompleted: Bool = false
 	
-	var todoTodoTasksCount: Int { todoTodoTasks.count }
-	var sortedTodoTodoTasksArray: [TodoTaskRowViewModel] {
-		todoTodoTasks.values.sorted { $0.dueTimeInterval < $1.dueTimeInterval }
+	var todoTasksCount: Int { todoTasks.count }
+	var sortedTodoTasksArray: [TodoTaskRowViewModel] {
+		todoTasks.values.sorted { $0.dueTimeInterval < $1.dueTimeInterval }
 	}
+	
+	private var cancellables: Set<AnyCancellable> = []
 	
 	init(
 		taskService: TodoTaskServiceProtocol = TodoTaskService()
@@ -22,32 +25,38 @@ class TodoTodoTasksViewModel: ObservableObject {
 	}
 	
 	func setup() {
-		getTodoTodoTasks()
+		getTodoTasks()
 	}
 	
 	func didCheck(taskId: String) {
-		todoTodoTasks[taskId]?.isDone.toggle()
-		
-		if allTodoTodoTasksChecked {
-			isCompleted = true
-		}
+		guard var isTaskChecked = todoTasks[taskId]?.isDone else { return }
+		isTaskChecked.toggle()
+		taskService.check(taskId: taskId, isChecked: isTaskChecked)
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] updatedTask in
+				guard let self = self else { return }
+				if let _ = updatedTask { self.todoTasks[taskId]?.isDone.toggle() }
+				
+				if self.todoTasks.allCompleted { self.isCompleted = true }
+			}
+			.store(in: &cancellables)
 	}
 }
 
-private extension TodoTodoTasksViewModel {
-	var allTodoTodoTasksChecked: Bool {
-		todoTodoTasks.values.filter { !$0.isDone }.isEmpty
-	}
-	
-	func getTodoTodoTasks() {
+private extension TodoTasksViewModel {
+	func getTodoTasks() {
 		taskService.get()
 			.receive(on: DispatchQueue.main)
-			.map { todoTodoTasks in
-				guard let todoTodoTasks = todoTodoTasks else { return [:] }
-				return todoTodoTasks.reduce(into: [:]) { result, task in
+			.map { todoTasks -> [String: TodoTaskRowViewModel] in
+				guard let todoTasks = todoTasks else { return [:] }
+				return todoTasks.reduce(into: [:]) { result, task in
 					result[task.id] = TodoTaskRowViewModel(from: task)
 				}
 			}
-			.assign(to: &$todoTodoTasks)
+			.sink { [weak self] taskRows in
+				self?.todoTasks = taskRows
+				self?.isCompleted = taskRows.allCompleted
+			}
+			.store(in: &cancellables)
 	}
 }

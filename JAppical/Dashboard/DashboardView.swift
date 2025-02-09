@@ -21,7 +21,7 @@ struct DashboardView: View {
 						logoHeader
 						header
 						Separator()
-						todoTodoTasks
+						todoTasks
 						
 						if let thisMonthHires = thisMonthHires, !thisMonthHires.isEmpty {
 							Separator()
@@ -70,7 +70,7 @@ private extension DashboardView {
 	}
 	
 	@ViewBuilder
-	var todoTodoTasks: some View {
+	var todoTasks: some View {
 		section(title: Strings.Dashboard.Sections.todos) {
 			JCard {
 				TodoTasksCard()

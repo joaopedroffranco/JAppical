@@ -51,3 +51,9 @@ class TodoTaskRowViewModel: ObservableObject, Identifiable {
 		}
 	}
 }
+
+extension Dictionary where Value == TodoTaskRowViewModel {
+	var allCompleted: Bool {
+		values.first { !$0.isDone } == nil
+	}
+}

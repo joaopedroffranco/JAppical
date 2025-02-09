@@ -4,7 +4,7 @@ import SwiftUI
 import JUI
 
 struct TodoTasksCard: View {
-	@StateObject private var viewModel = TodoTodoTasksViewModel()
+	@StateObject private var viewModel = TodoTasksViewModel()
 	
 	var body: some View {
 		VStack(alignment: .leading, spacing: .zero) {
@@ -22,8 +22,8 @@ struct TodoTasksCard: View {
 				emptyView
 					.frame(maxWidth: .infinity)
 			} else {
-				ForEach(Array(viewModel.sortedTodoTodoTasksArray.enumerated()), id: \.offset) { offset, task in
-					TodoTaskRow(viewModel: task, isFirst: offset == .zero, isLast: offset == viewModel.todoTodoTasksCount - 1) {
+				ForEach(Array(viewModel.sortedTodoTasksArray.enumerated()), id: \.offset) { offset, task in
+					TodoTaskRow(viewModel: task, isFirst: offset == .zero, isLast: offset == viewModel.todoTasksCount - 1) {
 						viewModel.didCheck(taskId: task.id)
 					}
 				}
@@ -48,7 +48,7 @@ private extension TodoTasksCard {
 }
 
 //struct TodoTasksCard_Previews: PreviewProvider {
-//	static let todoTodoTasks: [String: TodoTaskCardViewData] = [
+//	static let todoTasks: [String: TodoTaskCardViewData] = [
 //		"1": .init(
 //			text: "Set up introductory meeting with your team",
 //			dueDate: "Today",
@@ -69,13 +69,13 @@ private extension TodoTasksCard {
 //		),
 //	]
 //
-//	static let viewModel: TodoTodoTasksViewModel = {
-//		let viewModel = TodoTodoTasksViewModel()
-//		viewModel.todoTodoTasks = todoTodoTasks
+//	static let viewModel: TodoTasksViewModel = {
+//		let viewModel = TodoTasksViewModel()
+//		viewModel.todoTasks = todoTasks
 //	}()
 //
 //	static var previews: some View {
-//		TodoTodoTasksCard(viewModel: viewModel)
+//		TodoTasksCard(viewModel: viewModel)
 //			.padding(DesignSystem.Spacings.margin)
 //			.previewLayout(.sizeThatFits)
 //	}
