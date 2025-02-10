@@ -8,6 +8,9 @@ public struct Checkbox: View {
 	
 	private var size = 24.0
 	
+	@State private var opacity: Double = 0
+	@State private var degree: Angle = Angle(degrees: 180)
+	
 	public init(_ isChecked: Bool = false, didTap: @escaping () -> Void = {}) {
 		self.isChecked = isChecked
 		self.didTap = didTap
@@ -19,7 +22,15 @@ public struct Checkbox: View {
 				LocalImage(named: DesignSystem.Assets.checkedIcon)
 					.padding(.horizontal, 4)
 					.padding(.vertical, 7)
+					.opacity(opacity)
+					.rotationEffect(degree)
 					.background(DesignSystem.Colors.green.opacity(0.4))
+					.onAppear {
+						withAnimation(.easeIn(duration: 0.2)) {
+							opacity = 1
+							degree = Angle(degrees: 0)
+						}
+					}
 			} else {
 				Circle()
 					.stroke(DesignSystem.Colors.gray.opacity(0.7), lineWidth: 3)
