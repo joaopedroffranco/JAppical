@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C222889D2D53D4970037C34E /* JAppicalApp.swift */; };
 		C22288A22D53D4980037C34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22288A12D53D4980037C34E /* Assets.xcassets */; };
-		C22288B42D53D4990037C34E /* JAppicalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288B32D53D4990037C34E /* JAppicalTests.swift */; };
+		C22288B42D53D4990037C34E /* AuthenticationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288B32D53D4990037C34E /* AuthenticationManagerTests.swift */; };
 		C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A2E2D54B60100121239 /* DashboardView.swift */; };
 		C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A302D54B64900121239 /* DashboardScreen.swift */; };
 		C22B1A342D54BA4200121239 /* JData in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A332D54BA4200121239 /* JData */; };
@@ -19,6 +19,7 @@
 		C25333EB2D57BAC9002FF7F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25333EA2D57BAC9002FF7F0 /* LoginViewModel.swift */; };
 		C25C58B12D58C2BF00501D2E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */; };
 		C29766982D5A036800BD3DB4 /* TodoTasksViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */; };
+		C297669D2D5A66A200BD3DB4 /* FakeAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297669C2D5A66A200BD3DB4 /* FakeAuthenticationService.swift */; };
 		C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D22D561DC2006269EA /* LoginScreen.swift */; };
 		C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D42D561DC8006269EA /* LoginView.swift */; };
 		C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */; };
@@ -47,7 +48,7 @@
 		C222889D2D53D4970037C34E /* JAppicalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalApp.swift; sourceTree = "<group>"; };
 		C22288A12D53D4980037C34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C22288AF2D53D4990037C34E /* JAppicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAppicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C22288B32D53D4990037C34E /* JAppicalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalTests.swift; sourceTree = "<group>"; };
+		C22288B32D53D4990037C34E /* AuthenticationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerTests.swift; sourceTree = "<group>"; };
 		C22B1A2E2D54B60100121239 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C22B1A302D54B64900121239 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		C22B1A3A2D54E43500121239 /* NewHiresCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresCard.swift; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
 		C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTasksViewState.swift; sourceTree = "<group>"; };
 		C29766992D5A0DE800BD3DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C297669C2D5A66A200BD3DB4 /* FakeAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthenticationService.swift; sourceTree = "<group>"; };
 		C2A6B2D22D561DC2006269EA /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		C2A6B2D42D561DC8006269EA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 		C22288B22D53D4990037C34E /* JAppicalTests */ = {
 			isa = PBXGroup;
 			children = (
-				C22288B32D53D4990037C34E /* JAppicalTests.swift */,
+				C297669B2D5A668E00BD3DB4 /* Authentication */,
 			);
 			path = JAppicalTests;
 			sourceTree = "<group>";
@@ -169,6 +171,15 @@
 				C27D83ED2D53D536004BDF14 /* JUI */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		C297669B2D5A668E00BD3DB4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C297669C2D5A66A200BD3DB4 /* FakeAuthenticationService.swift */,
+				C22288B32D53D4990037C34E /* AuthenticationManagerTests.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		C2A6B2D12D561DB7006269EA /* Login */ = {
@@ -333,7 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22288B42D53D4990037C34E /* JAppicalTests.swift in Sources */,
+				C297669D2D5A66A200BD3DB4 /* FakeAuthenticationService.swift in Sources */,
+				C22288B42D53D4990037C34E /* AuthenticationManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

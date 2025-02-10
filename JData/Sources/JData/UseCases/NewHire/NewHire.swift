@@ -3,7 +3,7 @@
 import Foundation
 import RealmSwift
 
-public struct NewHire {
+public struct NewHire: Equatable {
 	public let id: String
 	public let name: String
 	public let startDate: TimeInterval

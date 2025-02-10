@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct User {
+public struct User: Equatable {
 	public let id: String
 	public let name: String
 	public let avatar: String?

@@ -1,6 +1,4 @@
-//
-//  Created by Joao Pedro Franco on 16/07/24.
-//
+// Created in 2025
 
 import Foundation
 

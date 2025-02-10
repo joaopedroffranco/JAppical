@@ -1,14 +1,7 @@
-//
-// Created by Joao Pedro Franco on 24/09/24
-//
+// Created in 2025
 	
 import SwiftUI
 
-/// A view that renders a customizable list.
-///
-/// This is a wrapper around the native `List` in SwiftUI.
-///
-/// By using `List`, it ensures optimal scrolling performance and provides flexibility for customization. This approach simplifies the code by accepting a list of hashable `Data` and rendering each item as a customizable row.
 public struct JList<Data: Hashable, Row: View>: View {
 	private var data: [Data]
 	private var rowView: (Int, Data) -> Row
