@@ -4,12 +4,14 @@ import SwiftUI
 import Kingfisher
 
 public struct Avatar: View {
+	private let id: String
 	private var image: URL?
 	private var borderColor: Color?
 	
 	private var size = 32.0
 	
-	public init(image: URL? = nil, borderColor: Color? = nil) {
+	public init(id: String, image: URL? = nil, borderColor: Color? = nil) {
+		self.id = id
 		self.image = image
 		self.borderColor = borderColor
 	}
@@ -17,7 +19,7 @@ public struct Avatar: View {
 	public var body: some View {
 		Group {
 			if let image = image {
-				KFImage.url(image)
+				KFImage.url(image, cacheKey: id)
 					.resizable()
 					.placeholder { placeholder }
 					.memoryCacheExpiration(.never)
@@ -46,8 +48,8 @@ public struct Avatar: View {
 struct Avatar_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			Avatar()
-			Avatar(borderColor: DesignSystem.Colors.dark)
+			Avatar(id: "1")
+			Avatar(id: "1", borderColor: DesignSystem.Colors.dark)
 		}
 		.padding()
 		.previewLayout(.sizeThatFits)

@@ -8,17 +8,9 @@ import JData
 class TodoTasksViewModel: ObservableObject {
 	private let taskService: TodoTaskServiceProtocol
 	
-	@Published var todoTasks: [String: TodoTaskRowViewModel] = [:]
-	@Published var isCompleted: Bool = false
+	@Published var state: TodoTasksViewState = .allCompleted
 	
-	var todoTasksCount: Int { todoTasks.count }
-	var sortedTodoTasksArray: [TodoTaskRowViewModel] {
-		todoTasks.values.sorted { $0.dueTimeInterval < $1.dueTimeInterval }
-	}
-	
-	init(
-		taskService: TodoTaskServiceProtocol = TodoTaskService()
-	) {
+	init(taskService: TodoTaskServiceProtocol = TodoTaskService()) {
 		self.taskService = taskService
 	}
 	
@@ -27,24 +19,32 @@ class TodoTasksViewModel: ObservableObject {
 	}
 	
 	func didCheck(taskId: String) {
-		guard var isTaskChecked = todoTasks[taskId]?.isDone else { return }
-		isTaskChecked.toggle()
+		guard var isChecked = state.isChecked(for: taskId) else { return }
+		isChecked.toggle()
 		
-		taskService.check(taskId: taskId, isChecked: isTaskChecked)
-		todoTasks[taskId]?.isDone.toggle()
-		if todoTasks.allCompleted { self.isCompleted = true }
+		taskService.check(isChecked, taskId: taskId)
+		state.check(isChecked, taskId: taskId)
+
+		switch state {
+		case let .todoTasks(tasks): if tasks.allCompleted { state = .allCompleted }
+		default: break
+		}
 	}
 }
 
 private extension TodoTasksViewModel {
 	func getTodoTasks() {
 		Task {
-			guard let todoTasks = await taskService.get() else { todoTasks = [:]; return }
+			guard let todoTasks = await taskService.get() else { state = .allCompleted; return }
 			let taskRows = todoTasks.reduce(into: [:]) { result, task in
 				result[task.id] = TodoTaskRowViewModel(from: task)
 			}
-			self.todoTasks = taskRows
-			isCompleted = taskRows.allCompleted
+			
+			if taskRows.allCompleted {
+				state = .allCompleted
+			} else {
+				state = .todoTasks(taskRows)
+			}
 		}
 	}
 }

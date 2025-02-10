@@ -42,7 +42,7 @@ private extension LoginView {
 			Text(Strings.Login.email)
 				.font(DesignSystem.Fonts.description)
 				.foregroundColor(DesignSystem.Colors.gray)
-
+			
 			JTextField(text: $viewModel.inputEmail, errorMessage: viewModel.emailErrorMessage)
 				.keyboardType(.emailAddress)
 				.textInputAutocapitalization(.never)
@@ -56,7 +56,7 @@ private extension LoginView {
 			Text(Strings.Login.password)
 				.font(DesignSystem.Fonts.description)
 			
-			.foregroundColor(DesignSystem.Colors.gray)
+				.foregroundColor(DesignSystem.Colors.gray)
 			JSecureTextField(text: $viewModel.inputPassword, errorMessage: viewModel.passwordErrorMessage)
 		}
 	}
@@ -70,23 +70,42 @@ private extension LoginView {
 				backgroundColor: DesignSystem.Colors.primary,
 				foregroundColor: DesignSystem.Colors.white
 			) { viewModel.validateEmail() }
-			.frame(width: 146, height: 42)
+				.frame(width: 146, height: 42)
 		case .inputPassword, .wrongPassword:
 			JButton(
 				text: Strings.Login.loginIn,
 				backgroundColor: DesignSystem.Colors.primary,
 				foregroundColor: DesignSystem.Colors.white
 			) { viewModel.authenticate() }
-			.frame(width: 146, height: 42)
+				.frame(width: 146, height: 42)
 		case .authenticationLoading, .emailLoading:
 			Loading()
-		default: EmptyView()
 		}
 	}
 }
 
-//struct LoginView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		LoginView
-//	}
-//}
+struct LoginView_Previews: PreviewProvider {
+	static func viewModel(for state: LoginViewState) -> LoginViewModel {
+		let viewModel = LoginViewModel(
+			authenticationManager: AuthenticationManager())
+		viewModel.state = state
+		return viewModel
+	}
+	
+	static var previews: some View {
+		Group {
+			LoginView(viewModel: viewModel(for: .inputEmail))
+				.previewDisplayName("Input email")
+			LoginView(viewModel: viewModel(for: .inputPassword))
+				.previewDisplayName("Input password")
+			LoginView(viewModel: viewModel(for: .emailInvalid))
+				.previewDisplayName("Email invalid")
+			LoginView(viewModel: viewModel(for: .emailNotExist))
+				.previewDisplayName("Email doesn't exist")
+			LoginView(viewModel: viewModel(for: .emailLoading))
+				.previewDisplayName("Email loading")
+			LoginView(viewModel: viewModel(for: .authenticationLoading))
+				.previewDisplayName("Auth loading")
+		}
+	}
+}

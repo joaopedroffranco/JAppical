@@ -17,13 +17,13 @@ struct DashboardScreen: View {
 			.navigationTitle(Strings.home)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Avatar(image: viewModel.loggedUser.avatar)
+					Avatar(id: "user_\(viewModel.loggedUser.name)", image: viewModel.loggedUser.avatar)
 						.onTapGesture { showLogoutOption = true }
 						.confirmationDialog("", isPresented: $showLogoutOption, titleVisibility: .hidden) {
 							Button(Strings.Login.loginOut) { viewModel.logout() }
 						}
 				}
 			}
-			.task { viewModel.setup() }
+			.onFirstAppear { viewModel.setup() }
 	}
 }

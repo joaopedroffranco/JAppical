@@ -4,7 +4,7 @@ import SwiftUI
 import JUI
 
 struct TodoTasksCard: View {
-	@StateObject private var viewModel = TodoTasksViewModel()
+	@StateObject var viewModel = TodoTasksViewModel()
 	
 	var body: some View {
 		VStack(alignment: .leading, spacing: .zero) {
@@ -18,18 +18,19 @@ struct TodoTasksCard: View {
 			}
 			.padding(.bottom, 32)
 			
-			if viewModel.isCompleted {
+			switch viewModel.state {
+			case .allCompleted:
 				emptyView
 					.frame(maxWidth: .infinity)
-			} else {
-				ForEach(Array(viewModel.sortedTodoTasksArray.enumerated()), id: \.offset) { offset, task in
-					TodoTaskRow(viewModel: task, isFirst: offset == .zero, isLast: offset == viewModel.todoTasksCount - 1) {
+			case .todoTasks:
+				ForEach(Array(viewModel.state.sortedTasksArray.enumerated()), id: \.offset) { offset, task in
+					TodoTaskRow(viewModel: task, isFirst: offset == .zero, isLast: offset == viewModel.state.count - 1) {
 						viewModel.didCheck(taskId: task.id)
 					}
 				}
 			}
 		}
-		.task { viewModel.setup() }
+		.onFirstAppear { viewModel.setup() }
 	}
 }
 
@@ -47,36 +48,46 @@ private extension TodoTasksCard {
 	}
 }
 
-//struct TodoTasksCard_Previews: PreviewProvider {
-//	static let todoTasks: [String: TodoTaskCardViewData] = [
-//		"1": .init(
-//			text: "Set up introductory meeting with your team",
-//			dueDate: "Today",
-//			color: .red,
-//			isDone: false
-//		),
-//		"2": .init(
-//			text: "Collect your new hire’s access card",
-//			dueDate: "Tomorrow",
-//			color: .green,
-//			isDone: false
-//		),
-//		"3": .init(
-//			text: "Set up 1:1 coffee dates with a minimum of 4 people from different departments",
-//			dueDate: "Today",
-//			color: .blue,
-//			isDone: true
-//		),
-//	]
-//
-//	static let viewModel: TodoTasksViewModel = {
-//		let viewModel = TodoTasksViewModel()
-//		viewModel.todoTasks = todoTasks
-//	}()
-//
-//	static var previews: some View {
-//		TodoTasksCard(viewModel: viewModel)
-//			.padding(DesignSystem.Spacings.margin)
-//			.previewLayout(.sizeThatFits)
-//	}
-//}
+struct TodoTasksCard_Previews: PreviewProvider {
+	static let todoTasks: [String: TodoTaskRowViewModel] = [
+		"1": .init(
+			id: "1",
+			text: "Set up introductory meeting with your team",
+			dueDate: "Today",
+			dueTimeInterval: 1111111,
+			color: .red,
+			isDone: false
+		),
+		"2": .init(
+			id: "2",
+			text: "Collect your new hire’s access card",
+			dueDate: "Tomorrow",
+			dueTimeInterval: 1111111,
+			color: .green,
+			isDone: false
+		),
+		"3": .init(
+			id: "3",
+			text: "Set up 1:1 coffee dates with a minimum of 4 people from different departments",
+			dueDate: "Today",
+			dueTimeInterval: 1111111,
+			color: .blue,
+			isDone: true
+		),
+	]
+	
+	static let dataViewModel: TodoTasksViewModel = {
+		let viewModel = TodoTasksViewModel()
+		viewModel.state = .todoTasks(todoTasks)
+		return viewModel
+	}()
+	
+	static var previews: some View {
+		Group {
+			TodoTasksCard(viewModel: dataViewModel)
+			TodoTasksCard()
+		}
+		.padding(DesignSystem.Spacings.margin)
+		.previewLayout(.sizeThatFits)
+	}
+}

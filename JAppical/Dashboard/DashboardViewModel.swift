@@ -6,7 +6,7 @@ import JData
 
 enum DashboardViewState {
 	case loading
-	case data(thisMonthHires: [URL?]?)
+	case data(thisMonthHires: [NewHireViewData]?)
 }
 
 @MainActor
@@ -40,8 +40,7 @@ private extension DashboardViewModel {
 	func getThisMonthHires() {
 		Task {
 			guard let thisMonth = await newHireService.getThisMonth() else { state = .data(thisMonthHires: nil); return }
-			let thisMonthHires = thisMonth.map { $0.avatar?.asUrl }
-			state = .data(thisMonthHires: thisMonthHires)
+			state = .data(thisMonthHires: thisMonth.map { NewHireViewData(from: $0) })
 		}
 	}
 }

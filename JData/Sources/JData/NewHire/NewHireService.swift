@@ -37,7 +37,7 @@ public class NewHireService: NewHireServiceProtocol {
 		if let cachedHires = fetchFromCache() {
 			return cachedHires
 		} else if let remotedHires = await fetchFromRemote() {
-			cacheStorage.save(remotedHires)
+			saveOnCache(remotedHires)
 			return remotedHires
 		}
 		
@@ -53,5 +53,10 @@ private extension NewHireService {
 	func fetchFromRemote() async -> [NewHire]? {
 		let newHires: [NewHire]? = try? await dataSource.fetch(request: NewHireRequest.fetchAll)
 		return newHires?.sorted { $0.startDate < $1.startDate }
+	}
+	
+	func saveOnCache(_ newHires: [NewHire]) {
+		cacheStorage.clean(ofType: NewHire.self)
+		cacheStorage.save(newHires)
 	}
 }

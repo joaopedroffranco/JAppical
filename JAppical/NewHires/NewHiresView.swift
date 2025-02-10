@@ -6,6 +6,9 @@ import JUI
 struct NewHiresView: View {
 	@ObservedObject var viewModel: NewHiresViewModel
 	
+	private var count: Int { data.count }
+	private var data: [NewHireViewData] { viewModel.newHires }
+	
 	init(viewModel: NewHiresViewModel) {
 		self.viewModel = viewModel
 	}
@@ -16,11 +19,9 @@ struct NewHiresView: View {
 				.font(DesignSystem.Fonts.heading)
 				.padding(.top, 32)
 				.padding(.bottom, DesignSystem.Spacings.margin)
-			
-			JList(data: viewModel.newHires) { offset, hire in
-				hireView(hire, isLast: offset == viewModel.newHires.count - 1)
-			}
-			.cornerRadius(DesignSystem.Radius.small)
+
+			JList(data: data) { offset, hire in hireView(hire, isLast: offset == count - 1) }
+			  .cornerRadius(DesignSystem.Radius.small)
 		}
 		.padding(.horizontal, DesignSystem.Spacings.margin)
 		.background(DesignSystem.Colors.lightGray)
@@ -32,7 +33,7 @@ private extension NewHiresView {
 	func hireView(_ newHire: NewHireViewData, isLast: Bool) -> some View {
 		VStack(alignment: .leading, spacing: .zero) {
 			HStack(spacing: DesignSystem.Spacings.margin) {
-				Avatar(image: newHire.avatar, borderColor: DesignSystem.Colors.border)
+				Avatar(id: newHire.id, image: newHire.avatar, borderColor: DesignSystem.Colors.border)
 				
 				VStack(alignment: .leading, spacing: DesignSystem.Spacings.small) {
 					Text(newHire.name)

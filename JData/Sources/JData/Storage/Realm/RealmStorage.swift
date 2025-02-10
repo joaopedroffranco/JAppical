@@ -45,4 +45,15 @@ public class RealmStorage: RealmStorageProtocol {
 		let realmObjects = instance.objects(T.RealmType.self)
 		return realmObjects.map { T(fromRealm: $0) }
 	}
+	
+	public func clean<T>(ofType type: T.Type) where T : RealmRepresentable {
+		guard let instance = instance else { return }
+		
+		let realmObjects = instance.objects(T.RealmType.self)
+		do {
+			try instance.write { instance.delete(realmObjects) }
+		} catch {
+			return
+		}
+	}
 }

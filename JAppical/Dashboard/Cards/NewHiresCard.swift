@@ -4,13 +4,13 @@ import SwiftUI
 import JUI
 
 struct NewHiresCard: View {
-	private var avatars: [URL?]
+	private var newHires: [NewHireViewData]
 	
-	private var avatarsCount: Int { avatars.count }
+	private var count: Int { newHires.count }
 	private let maxNumberOfAvatars = 5
 
-	init(avatars: [URL?]) {
-		self.avatars = avatars
+	init(newHires: [NewHireViewData]) {
+		self.newHires = newHires
 	}
 	
 	var body: some View {
@@ -26,7 +26,7 @@ struct NewHiresCard: View {
 			.padding(.bottom, 32)
 
 			HStack(alignment: .center, spacing: 22) {
-				Text(avatarsCount.description)
+				Text(count.description)
 					.font(DesignSystem.Fonts.huge)
 					.foregroundColor(DesignSystem.Colors.primary)
 				
@@ -49,18 +49,20 @@ private extension NewHiresCard {
 	@ViewBuilder
 	var avatarsView: some View {
 		HStack(spacing: -10.0) {
-			ForEach(avatars.prefix(maxNumberOfAvatars), id: \.self) {
-				Avatar(image: $0, borderColor: DesignSystem.Colors.white)
+			ForEach(newHires.prefix(maxNumberOfAvatars), id: \.self) {
+				Avatar(id: $0.id, image: $0.avatar, borderColor: DesignSystem.Colors.white)
 			}
 		}
 	}
 }
 
 struct NewHiresCard_Previews: PreviewProvider {
+	static let newHire = NewHireViewData(name: "Name", startDate: "Due 15 Feb 2025", startTimeInterval: 1111111)
+	
 	static var previews: some View {
 		Group {
-			NewHiresCard(avatars: [nil, nil, nil])
-			NewHiresCard(avatars: [nil, nil, nil, nil, nil, nil, nil])
+			NewHiresCard(newHires: [newHire, newHire, newHire])
+			NewHiresCard(newHires: [newHire, newHire, newHire, newHire, newHire, newHire, newHire])
 		}
 			.padding()
 			.previewLayout(.sizeThatFits)

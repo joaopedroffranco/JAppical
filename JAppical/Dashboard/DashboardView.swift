@@ -30,7 +30,7 @@ struct DashboardView: View {
 					}
 					.padding(.horizontal, DesignSystem.Spacings.margin)
 				}
-				.padding(.top, sectionsMargin)
+				.padding(.top, DesignSystem.Spacings.largeMargin)
 			}
 		}
 	}
@@ -79,12 +79,12 @@ private extension DashboardView {
 	}
 	
 	@ViewBuilder
-	func newHires(_ avatars: [URL?]) -> some View {
+	func newHires(_ newHires: [NewHireViewData]) -> some View {
 		section(title: Strings.Dashboard.Sections.newHires) {
 			NavigationLink { NewHiresScreen() } label: {
 				JCard {
 					HStack {
-						NewHiresCard(avatars: avatars)
+						NewHiresCard(newHires: newHires)
 						Spacer()
 					}
 				}
@@ -110,8 +110,26 @@ private extension DashboardView {
 }
 
 // MARK: - Preview
-//struct DashboardView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		DashboardView()
-//	}
-//}
+struct DashboardView_Previews: PreviewProvider {
+	static let loadingViewModel: DashboardViewModel = {
+		let viewModel = DashboardViewModel(authenticationManager: AuthenticationManager())
+		return viewModel
+	}()
+	
+	static let dataViewModel: DashboardViewModel = {
+		let viewModel = DashboardViewModel(authenticationManager: AuthenticationManager())
+		let data = [
+			NewHireViewData(name: "Hire 1", startDate: "Due 15 Feb 2025", startTimeInterval: 1111111),
+			NewHireViewData(name: "Hire 2", startDate: "Due 15 Feb 2025", startTimeInterval: 1111111)
+		]
+		viewModel.state = .data(thisMonthHires: data)
+		return viewModel
+	}()
+	
+	static var previews: some View {
+		Group {
+			DashboardView(viewModel: dataViewModel)
+			DashboardView(viewModel: loadingViewModel)
+		}
+	}
+}

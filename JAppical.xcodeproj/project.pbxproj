@@ -8,14 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C222889D2D53D4970037C34E /* JAppicalApp.swift */; };
-		C22288A02D53D4970037C34E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C222889F2D53D4970037C34E /* ContentView.swift */; };
 		C22288A22D53D4980037C34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22288A12D53D4980037C34E /* Assets.xcassets */; };
-		C22288A52D53D4980037C34E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22288A42D53D4980037C34E /* Preview Assets.xcassets */; };
-		C22288A72D53D4980037C34E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288A62D53D4980037C34E /* Persistence.swift */; };
-		C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */; };
 		C22288B42D53D4990037C34E /* JAppicalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288B32D53D4990037C34E /* JAppicalTests.swift */; };
-		C22288BE2D53D4990037C34E /* JAppicalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288BD2D53D4990037C34E /* JAppicalUITests.swift */; };
-		C22288C02D53D4990037C34E /* JAppicalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */; };
 		C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A2E2D54B60100121239 /* DashboardView.swift */; };
 		C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A302D54B64900121239 /* DashboardScreen.swift */; };
 		C22B1A342D54BA4200121239 /* JData in Frameworks */ = {isa = PBXBuildFile; productRef = C22B1A332D54BA4200121239 /* JData */; };
@@ -24,6 +18,7 @@
 		C22B1A3B2D54E43500121239 /* NewHiresCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B1A3A2D54E43500121239 /* NewHiresCard.swift */; };
 		C25333EB2D57BAC9002FF7F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25333EA2D57BAC9002FF7F0 /* LoginViewModel.swift */; };
 		C25C58B12D58C2BF00501D2E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */; };
+		C29766982D5A036800BD3DB4 /* TodoTasksViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */; };
 		C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D22D561DC2006269EA /* LoginScreen.swift */; };
 		C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D42D561DC8006269EA /* LoginView.swift */; };
 		C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */; };
@@ -45,28 +40,14 @@
 			remoteGlobalIDString = C22288992D53D4970037C34E;
 			remoteInfo = JAppical;
 		};
-		C22288BA2D53D4990037C34E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C22288922D53D4970037C34E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C22288992D53D4970037C34E;
-			remoteInfo = JAppical;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C222889A2D53D4970037C34E /* JAppical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAppical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C222889D2D53D4970037C34E /* JAppicalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalApp.swift; sourceTree = "<group>"; };
-		C222889F2D53D4970037C34E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C22288A12D53D4980037C34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C22288A42D53D4980037C34E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C22288A62D53D4980037C34E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		C22288A92D53D4980037C34E /* JAppical.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JAppical.xcdatamodel; sourceTree = "<group>"; };
 		C22288AF2D53D4990037C34E /* JAppicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAppicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22288B32D53D4990037C34E /* JAppicalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalTests.swift; sourceTree = "<group>"; };
-		C22288B92D53D4990037C34E /* JAppicalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAppicalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C22288BD2D53D4990037C34E /* JAppicalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalUITests.swift; sourceTree = "<group>"; };
-		C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAppicalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C22B1A2E2D54B60100121239 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C22B1A302D54B64900121239 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		C22B1A3A2D54E43500121239 /* NewHiresCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHiresCard.swift; sourceTree = "<group>"; };
@@ -75,6 +56,8 @@
 		C27D83EB2D53D51F004BDF14 /* JData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JData; sourceTree = "<group>"; };
 		C27D83EC2D53D527004BDF14 /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
 		C27D83ED2D53D536004BDF14 /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
+		C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTasksViewState.swift; sourceTree = "<group>"; };
+		C29766992D5A0DE800BD3DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C2A6B2D22D561DC2006269EA /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		C2A6B2D42D561DC8006269EA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -106,13 +89,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C22288B62D53D4990037C34E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,7 +98,6 @@
 				C27D83EA2D53D51F004BDF14 /* Packages */,
 				C222889C2D53D4970037C34E /* JAppical */,
 				C22288B22D53D4990037C34E /* JAppicalTests */,
-				C22288BC2D53D4990037C34E /* JAppicalUITests */,
 				C222889B2D53D4970037C34E /* Products */,
 				C22B1A322D54BA4200121239 /* Frameworks */,
 			);
@@ -133,7 +108,6 @@
 			children = (
 				C222889A2D53D4970037C34E /* JAppical.app */,
 				C22288AF2D53D4990037C34E /* JAppicalTests.xctest */,
-				C22288B92D53D4990037C34E /* JAppicalUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,26 +115,15 @@
 		C222889C2D53D4970037C34E /* JAppical */ = {
 			isa = PBXGroup;
 			children = (
+				C29766992D5A0DE800BD3DB4 /* Info.plist */,
 				C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */,
 				C2A6B2D12D561DB7006269EA /* Login */,
 				C2E63E7D2D55088300187560 /* NewHires */,
 				C22B1A2B2D54B57B00121239 /* Dashboard */,
 				C222889D2D53D4970037C34E /* JAppicalApp.swift */,
-				C222889F2D53D4970037C34E /* ContentView.swift */,
 				C22288A12D53D4980037C34E /* Assets.xcassets */,
-				C22288A62D53D4980037C34E /* Persistence.swift */,
-				C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */,
-				C22288A32D53D4980037C34E /* Preview Content */,
 			);
 			path = JAppical;
-			sourceTree = "<group>";
-		};
-		C22288A32D53D4980037C34E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				C22288A42D53D4980037C34E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		C22288B22D53D4990037C34E /* JAppicalTests */ = {
@@ -169,15 +132,6 @@
 				C22288B32D53D4990037C34E /* JAppicalTests.swift */,
 			);
 			path = JAppicalTests;
-			sourceTree = "<group>";
-		};
-		C22288BC2D53D4990037C34E /* JAppicalUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C22288BD2D53D4990037C34E /* JAppicalUITests.swift */,
-				C22288BF2D53D4990037C34E /* JAppicalUITestsLaunchTests.swift */,
-			);
-			path = JAppicalUITests;
 			sourceTree = "<group>";
 		};
 		C22B1A2B2D54B57B00121239 /* Dashboard */ = {
@@ -234,6 +188,7 @@
 				C2C540552D579FB6007EFDAC /* TodoTasksViewModel.swift */,
 				C2C5404E2D567BEB007EFDAC /* TodoTaskRowViewModel.swift */,
 				C2C540572D57A980007EFDAC /* TodoTaskRow.swift */,
+				C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */,
 			);
 			path = TodoTasks;
 			sourceTree = "<group>";
@@ -292,24 +247,6 @@
 			productReference = C22288AF2D53D4990037C34E /* JAppicalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C22288B82D53D4990037C34E /* JAppicalUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C22288C92D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppicalUITests" */;
-			buildPhases = (
-				C22288B52D53D4990037C34E /* Sources */,
-				C22288B62D53D4990037C34E /* Frameworks */,
-				C22288B72D53D4990037C34E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C22288BB2D53D4990037C34E /* PBXTargetDependency */,
-			);
-			name = JAppicalUITests;
-			productName = JAppicalUITests;
-			productReference = C22288B92D53D4990037C34E /* JAppicalUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -324,10 +261,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					C22288AE2D53D4990037C34E = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = C22288992D53D4970037C34E;
-					};
-					C22288B82D53D4990037C34E = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = C22288992D53D4970037C34E;
 					};
@@ -348,7 +281,6 @@
 			targets = (
 				C22288992D53D4970037C34E /* JAppical */,
 				C22288AE2D53D4990037C34E /* JAppicalTests */,
-				C22288B82D53D4990037C34E /* JAppicalUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -358,19 +290,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22288A52D53D4980037C34E /* Preview Assets.xcassets in Resources */,
 				C22288A22D53D4980037C34E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C22288AD2D53D4990037C34E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C22288B72D53D4990037C34E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -389,18 +313,16 @@
 				C2E63E7C2D54F2C500187560 /* TodoTasksCard.swift in Sources */,
 				C2E63E7F2D55089600187560 /* NewHiresScreen.swift in Sources */,
 				C2E63E812D55089D00187560 /* NewHiresView.swift in Sources */,
-				C22288A72D53D4980037C34E /* Persistence.swift in Sources */,
-				C22288AA2D53D4980037C34E /* JAppical.xcdatamodeld in Sources */,
 				C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */,
 				C2C540532D578E90007EFDAC /* NewHireViewData.swift in Sources */,
 				C22B1A312D54B64900121239 /* DashboardScreen.swift in Sources */,
 				C22B1A2F2D54B60100121239 /* DashboardView.swift in Sources */,
-				C22288A02D53D4970037C34E /* ContentView.swift in Sources */,
 				C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */,
 				C25C58B12D58C2BF00501D2E /* AuthenticationManager.swift in Sources */,
 				C2C540512D578DAB007EFDAC /* NewHiresViewModel.swift in Sources */,
 				C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */,
 				C2C540582D57A980007EFDAC /* TodoTaskRow.swift in Sources */,
+				C29766982D5A036800BD3DB4 /* TodoTasksViewState.swift in Sources */,
 				C222889E2D53D4970037C34E /* JAppicalApp.swift in Sources */,
 				C25333EB2D57BAC9002FF7F0 /* LoginViewModel.swift in Sources */,
 				C2C5404F2D567BEB007EFDAC /* TodoTaskRowViewModel.swift in Sources */,
@@ -415,15 +337,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C22288B52D53D4990037C34E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C22288C02D53D4990037C34E /* JAppicalUITestsLaunchTests.swift in Sources */,
-				C22288BE2D53D4990037C34E /* JAppicalUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -431,11 +344,6 @@
 			isa = PBXTargetDependency;
 			target = C22288992D53D4970037C34E /* JAppical */;
 			targetProxy = C22288B02D53D4990037C34E /* PBXContainerItemProxy */;
-		};
-		C22288BB2D53D4990037C34E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C22288992D53D4970037C34E /* JAppical */;
-			targetProxy = C22288BA2D53D4990037C34E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -561,15 +469,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"JAppical/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JAppical/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,15 +497,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"JAppical/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JAppical/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -652,40 +556,6 @@
 			};
 			name = Release;
 		};
-		C22288CA2D53D4990037C34E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppicalUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = JAppical;
-			};
-			name = Debug;
-		};
-		C22288CB2D53D4990037C34E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = joao.JAppicalUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = JAppical;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -716,15 +586,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C22288C92D53D4990037C34E /* Build configuration list for PBXNativeTarget "JAppicalUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C22288CA2D53D4990037C34E /* Debug */,
-				C22288CB2D53D4990037C34E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -741,19 +602,6 @@
 			productName = JUI;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		C22288A82D53D4980037C34E /* JAppical.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C22288A92D53D4980037C34E /* JAppical.xcdatamodel */,
-			);
-			currentVersion = C22288A92D53D4980037C34E /* JAppical.xcdatamodel */;
-			path = JAppical.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C22288922D53D4970037C34E /* Project object */;
 }

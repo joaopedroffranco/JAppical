@@ -4,7 +4,7 @@ import Combine
 
 public protocol TodoTaskServiceProtocol {
 	func get() async -> [TodoTask]?
-	func check(taskId: String, isChecked: Bool)
+	func check(_ isChecked: Bool, taskId: String)
 }
 
 public class TodoTaskService: TodoTaskServiceProtocol {
@@ -25,14 +25,14 @@ public class TodoTaskService: TodoTaskServiceProtocol {
 		await syncRemote()
 		
 		if let remotedTasks = await fetchFromRemote(), !remotedTasks.isEmpty {
-			cacheStorage.save(remotedTasks)
+			saveOnCache(remotedTasks)
 			return remotedTasks
 		} else {
 			return fetchFromCache()
 		}
 	}
 	
-	public func check(taskId: String, isChecked: Bool) {
+	public func check(_ isChecked: Bool, taskId: String) {
 		saveCheckOnCache(taskId: taskId, isChecked: isChecked)
 		trySaveCheckOnRemote(taskId: taskId, isChecked: isChecked)
 	}
@@ -45,6 +45,11 @@ private extension TodoTaskService {
 	
 	func fetchFromRemote() async -> [TodoTask]? {
 		try? await dataSource.fetch(request: TodoTaskRequest.fetch)
+	}
+	
+	func saveOnCache(_ tasks: [TodoTask]) {
+		cacheStorage.clean(ofType: TodoTask.self)
+		cacheStorage.save(tasks)
 	}
 	
 	func saveCheckOnCache(taskId: String, isChecked: Bool) {

@@ -12,7 +12,6 @@ enum LoginViewState {
 	case inputPassword
 	case wrongPassword
 	case authenticationLoading
-	case logged
 }
 
 @MainActor
