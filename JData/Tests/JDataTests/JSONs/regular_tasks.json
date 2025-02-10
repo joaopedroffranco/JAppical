@@ -1,0 +1,20 @@
+[
+	{
+	  "text": "Set up introductory meeting with your team",
+	  "dueDate": 1741081788,
+	  "isDone": false,
+	  "id": "1"
+	},
+	{
+	  "text": "Collect your new hire’s access card",
+	  "dueDate": 1740181728,
+	  "isDone": true,
+	  "id": "2"
+	},
+	{
+	  "text": "Set up 1:1 coffee dates with a minimum of 4 people from different departments",
+	  "dueDate": 1739201668,
+	  "isDone": true,
+	  "id": "3"
+	}
+  ]

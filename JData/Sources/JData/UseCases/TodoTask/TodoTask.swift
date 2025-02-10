@@ -41,6 +41,8 @@ public class TodoTaskRealm: Object {
 }
 
 extension TodoTask: RealmRepresentable {
+	public var primaryKey: String { id }
+	
 	public var asRealm: TodoTaskRealm {
 		let object = TodoTaskRealm()
 		object.id = id

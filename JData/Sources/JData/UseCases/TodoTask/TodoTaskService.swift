@@ -1,6 +1,6 @@
 // Created in 2025
 
-import Combine
+import Foundation
 
 public protocol TodoTaskServiceProtocol {
 	func get() async -> [TodoTask]?
@@ -10,8 +10,6 @@ public protocol TodoTaskServiceProtocol {
 public class TodoTaskService: TodoTaskServiceProtocol {
 	private let dataSource: RemoteDataSourceProtocol
 	private let cacheStorage: RealmStorageProtocol
-	
-	private var cancellables: Set<AnyCancellable> = []
 	
 	public init(
 		dataSource: RemoteDataSourceProtocol = RemoteDataSource(),
@@ -27,14 +25,27 @@ public class TodoTaskService: TodoTaskServiceProtocol {
 		if let remotedTasks = await fetchFromRemote(), !remotedTasks.isEmpty {
 			saveOnCache(remotedTasks)
 			return remotedTasks
-		} else {
-			return fetchFromCache()
+		} else if let cachedTasks = fetchFromCache(), !cachedTasks.isEmpty {
+			return cachedTasks
 		}
+		
+		return nil
 	}
 	
 	public func check(_ isChecked: Bool, taskId: String) {
 		saveCheckOnCache(taskId: taskId, isChecked: isChecked)
 		trySaveCheckOnRemote(taskId: taskId, isChecked: isChecked)
+	}
+	
+	func syncRemote() async {
+		if let tasks = cacheStorage.getAll(ofType: TodoTask.self)?.filter({ !$0.isRemoteUpdated }) {
+			for task in tasks {
+				if var updatedTask: TodoTask = try? await dataSource.fetch(request: TodoTaskRequest.update(id: task.id, task: task)) {
+					updatedTask.isRemoteUpdated = true
+					cacheStorage.save(updatedTask)
+				}
+			}
+		}
 	}
 }
 
@@ -67,17 +78,6 @@ private extension TodoTaskService {
 					cacheStorage.save(cached)
 				}
 				return
-			}
-		}
-	}
-	
-	func syncRemote() async {
-		if let tasks = cacheStorage.getAll(ofType: TodoTask.self)?.filter({ !$0.isRemoteUpdated }) {
-			for task in tasks {
-				if var updatedTask: TodoTask = try? await dataSource.fetch(request: TodoTaskRequest.update(id: task.id, task: task)) {
-					updatedTask.isRemoteUpdated = true
-					cacheStorage.save(updatedTask)
-				}
 			}
 		}
 	}

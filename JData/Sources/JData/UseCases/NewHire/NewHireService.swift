@@ -1,7 +1,6 @@
 // Created in 2025
 
 import Foundation
-import Combine
 import JFoundation
 
 public protocol NewHireServiceProtocol {
@@ -22,21 +21,21 @@ public class NewHireService: NewHireServiceProtocol {
 	}
 	
 	public func getThisMonth() async -> [NewHire]? {
-		let newHires: [NewHire]?
+		var newHires: [NewHire]? = nil
 		if let remotedHires = await fetchFromRemote(), !remotedHires.isEmpty {
 			cacheStorage.save(remotedHires)
 			newHires = remotedHires
-		} else {
-			newHires = fetchFromCache()
+		} else if let cachedHires = fetchFromCache(), !cachedHires.isEmpty{
+			newHires = cachedHires
 		}
 		
 		return newHires?.filter { $0.startDate.asDate.isThisMonth }
 	}
 	
 	public func getAll() async -> [NewHire]? {
-		if let cachedHires = fetchFromCache() {
+		if let cachedHires = fetchFromCache(), !cachedHires.isEmpty {
 			return cachedHires
-		} else if let remotedHires = await fetchFromRemote() {
+		} else if let remotedHires = await fetchFromRemote(), !remotedHires.isEmpty {
 			saveOnCache(remotedHires)
 			return remotedHires
 		}

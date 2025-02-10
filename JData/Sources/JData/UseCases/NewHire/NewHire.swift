@@ -33,6 +33,8 @@ public class NewHireRealm: Object {
 }
 
 extension NewHire: RealmRepresentable {
+	public var primaryKey: String { id }
+	
 	public var asRealm: NewHireRealm {
 		let object = NewHireRealm()
 		object.id = id

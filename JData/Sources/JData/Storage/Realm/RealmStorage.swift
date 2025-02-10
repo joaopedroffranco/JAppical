@@ -21,7 +21,7 @@ public class RealmStorage: RealmStorageProtocol {
 		}
 	}
 	
-	public func save<T>(_ objects: [T]) where T : RealmRepresentable {
+	public func save<T: RealmRepresentable>(_ objects: [T]) {
 		guard let instance = instance else { return }
 		
 		let realmObjects = objects.map { $0.asRealm }

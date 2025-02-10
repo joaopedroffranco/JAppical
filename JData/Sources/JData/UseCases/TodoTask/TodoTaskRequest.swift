@@ -31,7 +31,6 @@ enum TodoTaskRequest: Requestable {
 			do {
 				return try JSONSerialization.jsonObject(with: try JSONEncoder().encode(task)) as? [String: Any]
 			} catch {
-				print("JAO deu nao")
 				return nil
 			}
 		}
