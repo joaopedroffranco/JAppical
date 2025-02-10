@@ -4,7 +4,7 @@ import Foundation
 import Combine
 import JData
 
-enum DashboardViewState {
+enum DashboardViewState: Equatable {
 	case loading
 	case data(thisMonthHires: [NewHireViewData]?)
 }
@@ -12,15 +12,16 @@ enum DashboardViewState {
 @MainActor
 class DashboardViewModel: ObservableObject {
 	private let newHireService: NewHireServiceProtocol
-	private let authenticationManager: AuthenticationManager
+	private let authenticationManager: AuthenticationManagerProtocol
 	
 	@Published var state: DashboardViewState = .loading
+
 	var loggedUser: (avatar: URL?, name: String) {
 		(avatar: authenticationManager.loggedUser?.avatar?.asUrl, name: authenticationManager.loggedUser?.name ?? "")
 	}
 	
 	init(
-		authenticationManager: AuthenticationManager,
+		authenticationManager: AuthenticationManagerProtocol,
 		newHireService: NewHireServiceProtocol = NewHireService()
 	) {
 		self.newHireService = newHireService

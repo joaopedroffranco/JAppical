@@ -5,7 +5,7 @@ import SwiftUI
 struct LoginScreen: View {
 	@StateObject private var viewModel: LoginViewModel
 	
-	init(authenticationManager: AuthenticationManager) {
+	init(authenticationManager: AuthenticationManagerProtocol) {
 		_viewModel = StateObject(wrappedValue: LoginViewModel(authenticationManager: authenticationManager))
 	}
 	

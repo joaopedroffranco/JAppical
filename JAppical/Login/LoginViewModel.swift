@@ -16,7 +16,7 @@ enum LoginViewState {
 
 @MainActor
 class LoginViewModel: ObservableObject {
-	private let authenticationManager: AuthenticationManager
+	private let authenticationManager: AuthenticationManagerProtocol
 	
 	@Published var inputEmail: String = ""
 	@Published var inputPassword: String = ""
@@ -41,7 +41,7 @@ class LoginViewModel: ObservableObject {
 		}
 	}
 	
-	init(authenticationManager: AuthenticationManager) {
+	init(authenticationManager: AuthenticationManagerProtocol) {
 		self.authenticationManager = authenticationManager
 	}
 	

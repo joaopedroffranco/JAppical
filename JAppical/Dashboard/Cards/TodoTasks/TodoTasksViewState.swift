@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum TodoTasksViewState {
+enum TodoTasksViewState: Equatable {
 	case allCompleted
 	case todoTasks([String: TodoTaskRowViewModel])
 	

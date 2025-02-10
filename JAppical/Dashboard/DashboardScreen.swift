@@ -7,7 +7,7 @@ struct DashboardScreen: View {
 	@StateObject private var viewModel: DashboardViewModel
 	@State var showLogoutOption = false
 	
-	init(authenticationManager: AuthenticationManager) {
+	init(authenticationManager: AuthenticationManagerProtocol) {
 		_viewModel = StateObject(wrappedValue: DashboardViewModel(authenticationManager: authenticationManager))
 	}
 	

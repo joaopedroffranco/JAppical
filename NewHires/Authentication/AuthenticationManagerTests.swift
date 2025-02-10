@@ -11,7 +11,7 @@ class AuthenticationManagerTests: XCTestCase {
 		let manager = AuthenticationManager(service: service)
 		service.doesAuthenticate = true
 		service.doesEmailExist = true
-		let expectedUser = User(id: "1", name: "Test")
+		let expectedUser = UserStubs.instance
 		service.willLoginUser = expectedUser
 		
 		// when

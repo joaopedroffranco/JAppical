@@ -20,6 +20,15 @@
 		C25C58B12D58C2BF00501D2E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C58B02D58C2BF00501D2E /* AuthenticationManager.swift */; };
 		C29766982D5A036800BD3DB4 /* TodoTasksViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */; };
 		C297669D2D5A66A200BD3DB4 /* FakeAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297669C2D5A66A200BD3DB4 /* FakeAuthenticationService.swift */; };
+		C29766A12D5A695000BD3DB4 /* FakeNewHireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766A02D5A695000BD3DB4 /* FakeNewHireService.swift */; };
+		C29766A32D5A69A900BD3DB4 /* FakeAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766A22D5A69A900BD3DB4 /* FakeAuthenticationManager.swift */; };
+		C29766A52D5A6AE500BD3DB4 /* FakeTodoTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766A42D5A6AE500BD3DB4 /* FakeTodoTaskService.swift */; };
+		C29766A72D5A6BA200BD3DB4 /* TodoTaskStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766A62D5A6BA200BD3DB4 /* TodoTaskStubs.swift */; };
+		C29766A92D5A6BD100BD3DB4 /* NewHireStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766A82D5A6BD100BD3DB4 /* NewHireStubs.swift */; };
+		C29766AB2D5A6BF200BD3DB4 /* UserStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766AA2D5A6BF200BD3DB4 /* UserStubs.swift */; };
+		C29766AD2D5B511A00BD3DB4 /* NewHireViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766AC2D5B511A00BD3DB4 /* NewHireViewModelTests.swift */; };
+		C29766AF2D5B57F000BD3DB4 /* DashboardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766AE2D5B57F000BD3DB4 /* DashboardViewModelTests.swift */; };
+		C29766B12D5B5F2600BD3DB4 /* TodoTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29766B02D5B5F2600BD3DB4 /* TodoTaskViewModelTests.swift */; };
 		C2A6B2D32D561DC2006269EA /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D22D561DC2006269EA /* LoginScreen.swift */; };
 		C2A6B2D52D561DC8006269EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6B2D42D561DC8006269EA /* LoginView.swift */; };
 		C2C5404D2D5674A0007EFDAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */; };
@@ -60,6 +69,15 @@
 		C29766972D5A036800BD3DB4 /* TodoTasksViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTasksViewState.swift; sourceTree = "<group>"; };
 		C29766992D5A0DE800BD3DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C297669C2D5A66A200BD3DB4 /* FakeAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthenticationService.swift; sourceTree = "<group>"; };
+		C29766A02D5A695000BD3DB4 /* FakeNewHireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNewHireService.swift; sourceTree = "<group>"; };
+		C29766A22D5A69A900BD3DB4 /* FakeAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthenticationManager.swift; sourceTree = "<group>"; };
+		C29766A42D5A6AE500BD3DB4 /* FakeTodoTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTodoTaskService.swift; sourceTree = "<group>"; };
+		C29766A62D5A6BA200BD3DB4 /* TodoTaskStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTaskStubs.swift; sourceTree = "<group>"; };
+		C29766A82D5A6BD100BD3DB4 /* NewHireStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHireStubs.swift; sourceTree = "<group>"; };
+		C29766AA2D5A6BF200BD3DB4 /* UserStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStubs.swift; sourceTree = "<group>"; };
+		C29766AC2D5B511A00BD3DB4 /* NewHireViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHireViewModelTests.swift; sourceTree = "<group>"; };
+		C29766AE2D5B57F000BD3DB4 /* DashboardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModelTests.swift; sourceTree = "<group>"; };
+		C29766B02D5B5F2600BD3DB4 /* TodoTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTaskViewModelTests.swift; sourceTree = "<group>"; };
 		C2A6B2D22D561DC2006269EA /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		C2A6B2D42D561DC8006269EA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C2C5404C2D5674A0007EFDAC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -99,7 +117,7 @@
 			children = (
 				C27D83EA2D53D51F004BDF14 /* Packages */,
 				C222889C2D53D4970037C34E /* JAppical */,
-				C22288B22D53D4990037C34E /* JAppicalTests */,
+				C22288B22D53D4990037C34E /* NewHires */,
 				C222889B2D53D4970037C34E /* Products */,
 				C22B1A322D54BA4200121239 /* Frameworks */,
 			);
@@ -128,12 +146,14 @@
 			path = JAppical;
 			sourceTree = "<group>";
 		};
-		C22288B22D53D4990037C34E /* JAppicalTests */ = {
+		C22288B22D53D4990037C34E /* NewHires */ = {
 			isa = PBXGroup;
 			children = (
+				C297669F2D5A692600BD3DB4 /* Dashboard */,
+				C297669E2D5A692100BD3DB4 /* NewHires */,
 				C297669B2D5A668E00BD3DB4 /* Authentication */,
 			);
-			path = JAppicalTests;
+			path = NewHires;
 			sourceTree = "<group>";
 		};
 		C22B1A2B2D54B57B00121239 /* Dashboard */ = {
@@ -178,8 +198,31 @@
 			children = (
 				C297669C2D5A66A200BD3DB4 /* FakeAuthenticationService.swift */,
 				C22288B32D53D4990037C34E /* AuthenticationManagerTests.swift */,
+				C29766A22D5A69A900BD3DB4 /* FakeAuthenticationManager.swift */,
+				C29766AA2D5A6BF200BD3DB4 /* UserStubs.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C297669E2D5A692100BD3DB4 /* NewHires */ = {
+			isa = PBXGroup;
+			children = (
+				C29766A02D5A695000BD3DB4 /* FakeNewHireService.swift */,
+				C29766A82D5A6BD100BD3DB4 /* NewHireStubs.swift */,
+				C29766AC2D5B511A00BD3DB4 /* NewHireViewModelTests.swift */,
+			);
+			path = NewHires;
+			sourceTree = "<group>";
+		};
+		C297669F2D5A692600BD3DB4 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C29766A42D5A6AE500BD3DB4 /* FakeTodoTaskService.swift */,
+				C29766A62D5A6BA200BD3DB4 /* TodoTaskStubs.swift */,
+				C29766AE2D5B57F000BD3DB4 /* DashboardViewModelTests.swift */,
+				C29766B02D5B5F2600BD3DB4 /* TodoTaskViewModelTests.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		C2A6B2D12D561DB7006269EA /* Login */ = {
@@ -344,8 +387,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29766AD2D5B511A00BD3DB4 /* NewHireViewModelTests.swift in Sources */,
+				C29766A92D5A6BD100BD3DB4 /* NewHireStubs.swift in Sources */,
+				C29766A32D5A69A900BD3DB4 /* FakeAuthenticationManager.swift in Sources */,
+				C29766B12D5B5F2600BD3DB4 /* TodoTaskViewModelTests.swift in Sources */,
+				C29766AB2D5A6BF200BD3DB4 /* UserStubs.swift in Sources */,
 				C297669D2D5A66A200BD3DB4 /* FakeAuthenticationService.swift in Sources */,
+				C29766A72D5A6BA200BD3DB4 /* TodoTaskStubs.swift in Sources */,
+				C29766A52D5A6AE500BD3DB4 /* FakeTodoTaskService.swift in Sources */,
+				C29766A12D5A695000BD3DB4 /* FakeNewHireService.swift in Sources */,
 				C22288B42D53D4990037C34E /* AuthenticationManagerTests.swift in Sources */,
+				C29766AF2D5B57F000BD3DB4 /* DashboardViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,7 +4,6 @@ import Foundation
 import JData
 
 class FakeAuthenticationService: AuthenticationServiceProtocol {
-	
 	var doesEmailExist: Bool = false
 	var doesAuthenticate: Bool = false
 	var willLoginUser: User?

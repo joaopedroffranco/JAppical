@@ -52,6 +52,12 @@ class TodoTaskRowViewModel: ObservableObject, Identifiable {
 	}
 }
 
+extension TodoTaskRowViewModel: Equatable {
+	static func == (lhs: TodoTaskRowViewModel, rhs: TodoTaskRowViewModel) -> Bool {
+		lhs.id == rhs.id && lhs.isDone == rhs.isDone
+	}
+}
+
 extension Dictionary where Value == TodoTaskRowViewModel {
 	var allCompleted: Bool {
 		values.first { !$0.isDone } == nil
