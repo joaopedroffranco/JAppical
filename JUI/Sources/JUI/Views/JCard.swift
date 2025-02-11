@@ -2,6 +2,17 @@
 
 import SwiftUI
 
+/// `JCard` is a container component that provides a styled card layout.
+///
+/// It wraps any SwiftUI view and applies consistent padding, background color, corner radius, border, and shadow.
+///
+/// ```swift
+/// JCard {
+///     Text("This is a card!")
+/// }
+/// ```
+///
+/// The content inside `JCard` is customizable and adapts to any provided view.
 public struct JCard<Content: View>: View {
 	let content: Content
 	

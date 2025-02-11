@@ -5,13 +5,13 @@ import JUI
 
 struct TodoTaskRow: View {
 	@ObservedObject private var viewModel: TodoTaskRowViewModel
-	private var didCheck: () -> Void
+	private var didMark: () -> Void
 	private var isFirst: Bool
 	private var isLast: Bool
 	
-	init(viewModel: TodoTaskRowViewModel, isFirst: Bool, isLast: Bool, didCheck: @escaping () -> Void = {}) {
+	init(viewModel: TodoTaskRowViewModel, isFirst: Bool, isLast: Bool, didMark: @escaping () -> Void = {}) {
 		self.viewModel = viewModel
-		self.didCheck = didCheck
+		self.didMark = didMark
 		self.isFirst = isFirst
 		self.isLast = isLast
 	}
@@ -19,7 +19,7 @@ struct TodoTaskRow: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: .zero) {
 			HStack(alignment: .top, spacing: DesignSystem.Spacings.default) {
-				Checkbox(viewModel.isDone, didTap: didCheck)
+				Checkbox(viewModel.isDone, didTap: didMark)
 				
 				VStack(alignment: .leading, spacing: DesignSystem.Spacings.default) {
 					Text(viewModel.text)

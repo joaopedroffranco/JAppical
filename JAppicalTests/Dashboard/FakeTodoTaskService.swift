@@ -11,7 +11,7 @@ class FakeTodoTaskService: TodoTaskServiceProtocol {
 		return Array(values)
 	}
 
-	func check(_ isChecked: Bool, taskId: String) {
-		tasks?[taskId]?.isDone = isChecked
+	func markAsDone(_ isDone: Bool, taskId: String) {
+		tasks?[taskId]?.isDone = isDone
 	}
 }

@@ -90,7 +90,7 @@ class TodoTaskViewModelTests: XCTestCase {
 	}
 	
 	// MARK: - Check
-	func testDidCheck() async throws {
+	func testdidMark() async throws {
 		// given
 		let tasks = TodoTaskStubs.many
 		let service = FakeTodoTaskService()
@@ -110,13 +110,13 @@ class TodoTaskViewModelTests: XCTestCase {
 		
 		XCTAssertEqual(expectedState, .allCompleted)
 		await viewModel.setup()
-		XCTAssertFalse(expectedState.isChecked(for: "1") ?? false)
+		XCTAssertFalse(expectedState.isDone(for: "1") ?? false)
 		wait(for: [expectation], timeout: 1)
 
-		await viewModel.didCheck(taskId: "1")
+		await viewModel.didMark(taskId: "1")
 
 		// then
-		XCTAssertTrue(expectedState.isChecked(for: "1") ?? false)
+		XCTAssertTrue(expectedState.isDone(for: "1") ?? false)
 	}
 	
 	func testDidUnCheck() async throws {
@@ -139,17 +139,17 @@ class TodoTaskViewModelTests: XCTestCase {
 		
 		XCTAssertEqual(expectedState, .allCompleted)
 		await viewModel.setup()
-		XCTAssertFalse(expectedState.isChecked(for: "1") ?? false)
+		XCTAssertFalse(expectedState.isDone(for: "1") ?? false)
 		wait(for: [expectation], timeout: 1)
 
-		await viewModel.didCheck(taskId: "1")
-		await viewModel.didCheck(taskId: "1")
+		await viewModel.didMark(taskId: "1")
+		await viewModel.didMark(taskId: "1")
 
 		// then
-		XCTAssertFalse(expectedState.isChecked(for: "1") ?? false)
+		XCTAssertFalse(expectedState.isDone(for: "1") ?? false)
 	}
 	
-	func testDidCheckThenAllCompleted() async throws {
+	func testdidMarkThenAllCompleted() async throws {
 		// given
 		let tasks = TodoTaskStubs.many
 		let service = FakeTodoTaskService()
@@ -169,15 +169,15 @@ class TodoTaskViewModelTests: XCTestCase {
 		
 		XCTAssertEqual(expectedState, .allCompleted)
 		await viewModel.setup()
-		XCTAssertFalse(expectedState.isChecked(for: "1") ?? false)
+		XCTAssertFalse(expectedState.isDone(for: "1") ?? false)
 		wait(for: [expectation], timeout: 1)
 
-		await viewModel.didCheck(taskId: "1")
-		await viewModel.didCheck(taskId: "2")
+		await viewModel.didMark(taskId: "1")
+		await viewModel.didMark(taskId: "2")
 
 		// then
-		XCTAssertNil(expectedState.isChecked(for: "1"))
-		XCTAssertNil(expectedState.isChecked(for: "2"))
+		XCTAssertNil(expectedState.isDone(for: "1"))
+		XCTAssertNil(expectedState.isDone(for: "2"))
 		XCTAssertEqual(expectedState, .allCompleted)
 	}
 }

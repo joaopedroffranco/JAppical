@@ -20,18 +20,18 @@ enum TodoTasksViewState: Equatable {
 		}
 	}
 	
-	func isChecked(for taskId: String) -> Bool? {
+	func isDone(for taskId: String) -> Bool? {
 		switch self {
 		case .allCompleted: return nil
 		case let .todoTasks(tasks): return tasks[taskId]?.isDone ?? nil
 		}
 	}
 	
-	func check(_ isChecked: Bool, taskId: String) {
+	func markAsDone(_ isDone: Bool, taskId: String) {
 		switch self {
 		case .allCompleted: break
 		case let .todoTasks(tasks):
-			tasks[taskId]?.isDone = isChecked
+			tasks[taskId]?.isDone = isDone
 		}
 	}
 }

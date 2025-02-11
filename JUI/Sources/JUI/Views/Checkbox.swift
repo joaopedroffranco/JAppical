@@ -2,8 +2,23 @@
 
 import SwiftUI
 
+/// `Checkbox` is a UI component that represents a selectable checkbox.
+///
+/// It visually updates based on its checked state and supports an animation when toggled.
+/// The component also allows an action to be executed when tapped.
+///
+/// ```swift
+/// Checkbox(true) {
+///     print("Checkbox tapped!")
+/// }
+/// ```
+///
+/// If no initial state is provided, it defaults to unchecked.
+/// ```swift
+/// Checkbox()
+/// ```
 public struct Checkbox: View {
-	private var isChecked: Bool
+	private var isDone: Bool
 	private var didTap: () -> Void
 	
 	private var size = 24.0
@@ -11,14 +26,14 @@ public struct Checkbox: View {
 	@State private var opacity: Double = 0
 	@State private var degree: Angle = Angle(degrees: 180)
 	
-	public init(_ isChecked: Bool = false, didTap: @escaping () -> Void = {}) {
-		self.isChecked = isChecked
+	public init(_ isDone: Bool = false, didTap: @escaping () -> Void = {}) {
+		self.isDone = isDone
 		self.didTap = didTap
 	}
 	
 	public var body: some View {
 		Group {
-			if isChecked {
+			if isDone {
 				LocalImage(named: DesignSystem.Assets.checkedIcon)
 					.padding(.horizontal, 4)
 					.padding(.vertical, 7)

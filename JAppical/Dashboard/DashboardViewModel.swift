@@ -9,6 +9,19 @@ enum DashboardViewState: Equatable {
 	case data(thisMonthHires: [NewHireViewData]?)
 }
 
+/// A view model responsible for managing the dashboard state, including displaying the user's information,
+/// and fetching new hires for the current month.
+///
+/// The `DashboardViewModel` class interacts with the `NewHireServiceProtocol` to retrieve new hires for the
+/// current month and with the `AuthenticationManagerProtocol` to manage user authentication and user data.
+///
+/// The class uses `@MainActor` to ensure UI updates are performed on the main thread.
+///
+/// ```
+/// let dashboardViewModel = DashboardViewModel(authenticationManager: authenticationManager)
+/// dashboardViewModel.setup() // Fetch new hires for the current month
+/// dashboardViewModel.logout() // Log the user out
+/// ```
 @MainActor
 class DashboardViewModel: ObservableObject {
 	private let newHireService: NewHireServiceProtocol

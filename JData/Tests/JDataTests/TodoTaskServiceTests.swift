@@ -71,8 +71,8 @@ final class TodoTaskServiceTests: XCTestCase {
 		XCTAssertNil(allNewHires)
 	}
 	
-	// MARK: - Check
-	func testCheckWithRemote() async throws {
+	// MARK: - Mark as Done
+	func testMarkAsDoneWithRemote() async throws {
 		// given
 		let currentCache = cache
 		let dataSource = FakeRemoteDataSource(jsonFile: JSONFile.regularTasks)
@@ -81,14 +81,14 @@ final class TodoTaskServiceTests: XCTestCase {
 		currentCache.save(TodoTaskStubs.manyNotDone)
 		
 		// when
-		service.check(true, taskId: "1")
+		service.markAsDone(true, taskId: "1")
 
 		// then
 		guard let cachedTasks = currentCache.getAll(ofType: TodoTask.self), let first = cachedTasks.first else { return XCTFail() }
 		XCTAssertTrue(first.isDone)
 	}
 	
-	func testCheckWithNoRemote() async throws {
+	func testMarkAsDoneWithNoRemote() async throws {
 		// given
 		let currentCache = cache
 		let dataSource = FakeRemoteDataSource(jsonFile: JSONFile.regularTasks)
@@ -102,7 +102,7 @@ final class TodoTaskServiceTests: XCTestCase {
 		}
 		
 		// when
-		service.check(true, taskId: "1")
+		service.markAsDone(true, taskId: "1")
 		await waitForExpectations(timeout: 1)
 		
 		// then

@@ -3,6 +3,19 @@
 import SwiftUI
 import Kingfisher
 
+/// `Avatar` is a UI component for displaying user profile images.
+///
+/// It loads an image from a given URL and falls back to a placeholder if the image is unavailable.
+/// Additionally, it allows an optional border color customization.
+///
+/// ```swift
+/// Avatar(id: "123", image: URL(string: "https://example.com/avatar.png"), borderColor: .blue)
+/// ```
+///
+/// If no image is provided, a default placeholder avatar will be displayed.
+/// ```swift
+/// Avatar(id: "123")
+/// ```
 public struct Avatar: View {
 	private let id: String
 	private var image: URL?

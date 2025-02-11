@@ -8,6 +8,26 @@ public protocol NewHireServiceProtocol {
 	func getAll() async -> [NewHire]?
 }
 
+/// A service for managing new hires, which fetches new hire data either from a remote source or local cache, and provides
+/// the data to the consumer while ensuring synchronization between the cache and remote data.
+///
+/// The `NewHireService` class is responsible for fetching new hire information. It checks for the availability of data
+/// in a local cache (using `RealmStorageProtocol`), and if not found, it fetches the data from a remote source
+/// (using `RemoteDataSourceProtocol`). The data is then cached for future access. The service includes methods to fetch
+/// new hires for the current month and to fetch all new hires.
+///
+/// This class provides:
+/// - A method to fetch new hires for the current month, checking both the cache and remote source.
+/// - A method to fetch all new hires, again checking both the cache and remote source.
+/// - Caching logic to store data retrieved from the remote source for future use.
+///
+/// **Note**: The cache is updated whenever new data is fetched from the remote source.
+///
+/// ```
+/// let newHireService = NewHireService()
+/// let thisMonthNewHires = await newHireService.getThisMonth()
+/// let allNewHires = await newHireService.getAll()
+/// ```
 public class NewHireService: NewHireServiceProtocol {
 	private let dataSource: RemoteDataSourceProtocol
 	private let cacheStorage: RealmStorageProtocol

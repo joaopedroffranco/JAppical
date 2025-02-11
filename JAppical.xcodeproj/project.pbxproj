@@ -117,7 +117,7 @@
 			children = (
 				C27D83EA2D53D51F004BDF14 /* Packages */,
 				C222889C2D53D4970037C34E /* JAppical */,
-				C22288B22D53D4990037C34E /* NewHires */,
+				C22288B22D53D4990037C34E /* JAppicalTests */,
 				C222889B2D53D4970037C34E /* Products */,
 				C22B1A322D54BA4200121239 /* Frameworks */,
 			);
@@ -146,14 +146,14 @@
 			path = JAppical;
 			sourceTree = "<group>";
 		};
-		C22288B22D53D4990037C34E /* NewHires */ = {
+		C22288B22D53D4990037C34E /* JAppicalTests */ = {
 			isa = PBXGroup;
 			children = (
 				C297669F2D5A692600BD3DB4 /* Dashboard */,
 				C297669E2D5A692100BD3DB4 /* NewHires */,
 				C297669B2D5A668E00BD3DB4 /* Authentication */,
 			);
-			path = NewHires;
+			path = JAppicalTests;
 			sourceTree = "<group>";
 		};
 		C22B1A2B2D54B57B00121239 /* Dashboard */ = {

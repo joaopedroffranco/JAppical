@@ -9,6 +9,19 @@ public enum RequestMethod {
 	case put
 }
 
+/// A set of computed properties to generate different types of HTTP requests based on the method specified.
+///
+/// This protocol provides computed properties to create `URLRequest` objects for GET, POST, and PUT methods. It ensures
+/// that each request is properly configured with the necessary URL, headers, parameters, and HTTP method based on the
+/// context of the request type.
+///
+/// The `Requestable` provides:
+/// - A computed `request` property that returns the appropriate `URLRequest` based on the specified HTTP method.
+/// - Methods for constructing GET, POST, and PUT requests with the necessary parameters and headers.
+///
+/// ```
+/// let request = myRequestableInstance.request
+/// ```
 public protocol Requestable {
 	var method: RequestMethod { get }
 	var host: String { get }

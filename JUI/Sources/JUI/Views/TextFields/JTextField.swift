@@ -2,6 +2,20 @@
 
 import SwiftUI
 
+/// A customizable text field with optional error message.
+///
+/// This view displays a text field that allows users to input text. It includes an optional error message that is
+/// displayed below the field if provided. The appearance of the text field is customizable with a placeholder, padding,
+/// and styling for the border and background.
+///
+/// The `JTextField` component provides:
+/// - A customizable placeholder.
+/// - An optional error message display.
+/// - Styled input field with customizable padding and border.
+///
+/// ```
+/// JTextField(text: $username, placeholder: "Enter your username", errorMessage: "Username is required")
+/// ```
 public struct JTextField: View {
 	@Binding private var text: String
 	private let placeholder: String

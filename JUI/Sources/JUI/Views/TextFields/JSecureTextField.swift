@@ -2,6 +2,20 @@
 
 import SwiftUI
 
+/// A secure text field that can toggle between secure and plain text input.
+///
+/// This view provides a text field where the user can securely enter text (e.g., passwords). It includes a toggle
+/// button that allows the user to switch between secure and plain text input. Additionally, it displays an optional
+/// error message below the field if provided.
+///
+/// The `JSecureTextField` component allows for:
+/// - Secure or plain text input toggle.
+/// - A customizable placeholder.
+/// - An optional error message display.
+///
+/// ```
+/// JSecureTextField(text: $password, placeholder: "Enter your password", errorMessage: "Password is too weak")
+/// ```
 public struct JSecureTextField: View {
 	@Binding private var text: String
 	@State private var isSecure: Bool = true

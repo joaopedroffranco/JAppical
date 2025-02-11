@@ -25,7 +25,7 @@ struct TodoTasksCard: View {
 			case .todoTasks:
 				ForEach(Array(viewModel.state.sortedTasksArray.enumerated()), id: \.offset) { offset, task in
 					TodoTaskRow(viewModel: task, isFirst: offset == .zero, isLast: offset == viewModel.state.count - 1) {
-						viewModel.didCheck(taskId: task.id)
+						viewModel.didMark(taskId: task.id)
 					}
 				}
 			}

@@ -2,6 +2,28 @@
 
 import SwiftUI
 
+/// `JButton` is a customizable button component.
+///
+/// It allows setting the button text, background color, foreground color, and an optional action when tapped.
+///
+/// ```swift
+/// JButton(
+///     text: "Click me",
+///     backgroundColor: .blue,
+///     foregroundColor: .white
+/// ) {
+///     print("Button tapped!")
+/// }
+/// ```
+///
+/// If no action is provided, the button remains static.
+/// ```swift
+/// JButton(
+///     text: "No action",
+///     backgroundColor: .gray,
+///     foregroundColor: .white
+/// )
+/// ```
 public struct JButton: View {
 	private let text: String
 	private let backgroundColor: Color

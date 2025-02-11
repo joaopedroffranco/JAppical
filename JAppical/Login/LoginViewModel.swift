@@ -14,6 +14,20 @@ enum LoginViewState {
 	case authenticationLoading
 }
 
+/// A view model responsible for handling the login process, including validating the email,
+/// authenticating the user, and managing the UI state for login.
+///
+/// This class interacts with the `AuthenticationManagerProtocol` to verify the existence of an email
+/// and perform user authentication. It updates the `LoginViewState` based on the input and authentication result,
+/// and provides error messages for invalid input or incorrect credentials.
+///
+/// The class uses `@MainActor` to ensure UI updates are performed on the main thread.
+///
+/// ```
+/// let loginViewModel = LoginViewModel(authenticationManager: authenticationManager)
+/// loginViewModel.validateEmail() // Validate the entered email
+/// loginViewModel.authenticate() // Authenticate the user
+/// ```
 @MainActor
 class LoginViewModel: ObservableObject {
 	private let authenticationManager: AuthenticationManagerProtocol
