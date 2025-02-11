@@ -10,6 +10,6 @@ public enum Credentials {
 	public static let loggedUserKey = "logged_user"
 	
 	public static let loggedUser = User(
-		id: "1", name: "João Pedro", avatar: "https://loremflickr.com/50/50"
+		id: "1", name: "João", avatar: "https://loremflickr.com/50/50"
 	)
 }

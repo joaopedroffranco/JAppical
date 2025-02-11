@@ -46,6 +46,12 @@ public struct Checkbox: View {
 							degree = Angle(degrees: 0)
 						}
 					}
+					.onDisappear {
+						withAnimation(.easeIn(duration: 0.2)) {
+							opacity = 0
+							degree = Angle(degrees: 180)
+						}
+					}
 			} else {
 				Circle()
 					.stroke(DesignSystem.Colors.gray.opacity(0.7), lineWidth: 3)

@@ -24,6 +24,7 @@ struct NewHiresView: View {
 			  .cornerRadius(DesignSystem.Radius.small)
 		}
 		.padding(.horizontal, DesignSystem.Spacings.margin)
+		.padding(.bottom, DesignSystem.Spacings.margin)
 		.background(DesignSystem.Colors.lightGray)
 	}
 }
@@ -60,8 +61,20 @@ private extension NewHiresView {
 	}
 }
 
-//struct NewHiresView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		NewHiresView()
-//	}
-//}
+struct NewHiresView_Previews: PreviewProvider {
+	static let data: [NewHireViewData] = [
+		.init(id: "1", name: "Joao", startDate: "First Day 15 Feb 2025", startTimeInterval: 1, avatar: nil),
+		.init(id: "2", name: "Pedro", startDate: "First Day 15 Feb 2025", startTimeInterval: 2, avatar: nil),
+		.init(id: "3", name: "Franco", startDate: "First Day 15 Feb 2025", startTimeInterval: 3, avatar: nil)
+	]
+	
+	static let viewModel: NewHiresViewModel = {
+		let viewModel = NewHiresViewModel()
+		viewModel.newHires = data
+		return viewModel
+	}()
+
+	static var previews: some View {
+		NewHiresView(viewModel: viewModel)
+	}
+}

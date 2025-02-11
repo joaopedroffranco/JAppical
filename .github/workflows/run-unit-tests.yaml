@@ -1,0 +1,32 @@
+name: Swift Unit Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-14
+    
+    steps:
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '15.1'
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies using Swift Package Manager
+      run: |
+        xcodebuild -resolvePackageDependencies
+
+    - name: Run JData Unit Tests
+      run: |
+        cd JData
+        xcodebuild -scheme JData test -destination "platform=iOS Simulator,name=iPhone 13,OS=15.5";
+        cd ..
+
+    - name: Run JAppical Unit Tests
+      run: |
+        xcodebuild -scheme JAppical test -destination "platform=iOS Simulator,name=iPhone 13,OS=15.5";

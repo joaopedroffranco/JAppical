@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
 	name: "JData",
 	platforms: [
-		.iOS(.v15)
+		.iOS(.v15),
 	],
 	products: [
 		.library(
